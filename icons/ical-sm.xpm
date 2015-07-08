@@ -1,0 +1,29 @@
+/* XPM */
+static char * ical_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 18 5 1",
+/* colors */
+" 	s None	c none",
+".	c black",
+"X	c #ffffe3",
+"o	c #3c3c3c",
+"O	c #f81440",
+/* pixels */
+"           .            ",
+"  .  . .  .X.     .     ",
+"oooooooooooXooooooooooo ",
+"oXXX.XXXXXXXXXX.XXXX.XX.",
+"oXXXXXXXXXXXXXXXXXXXXXX.",
+"oXXXXXXXXXXXXXXXXXXXXXX.",
+"oXXX.XXXOXXXXX..XX.XXXX.",
+"oXXX.XXOXXX.XXX.XXXXXXX.",
+"oXXX.XXOXXXXXXXXXX.XXXX.",
+"oXXXXXXXXXXXXXXXXXXXXXX.",
+"oXXX.XXOOXX.XXXXXX.XXXX.",
+"oXXXXXXXXXXXXXXXXXXXXXX.",
+"oXXX.XXOXXX.XXX.XX.XXXX.",
+"oXXXXXXXXXXXXXXXXXXXXXX.",
+"oXXX.XXOXXX.XXX.XX.XXXX.",
+"oXXXXXXXXXXXXXXXXXXXXXX.",
+"oXXXXXXXXXXXXXXXXXXXXXX.",
+" ......................."};

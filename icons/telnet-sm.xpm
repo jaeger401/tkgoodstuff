@@ -1,0 +1,30 @@
+/* XPM */
+static char * telnet_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 18 6 1",
+/* colors */
+" 	s None	c none",
+".	c black",
+"X	c #ffffe3",
+"o	c #3c3c3c",
+"O	c #7fff00",
+"+	c #c0c0c0",
+/* pixels */
+"                        ",
+"          ............  ",
+"         .XXXXXXXXXXX.. ",
+"        .............X. ",
+"       ..oooooooooo..X. ",
+"       .oOOOOOOooooo.X. ",
+"       .oOOOOOOOOOoo.X. ",
+"       .oOOooooooooo.X. ",
+"       .oOOOOOOoOooo.X. ",
+"       .oooooooooooo.X. ",
+"       .oooooooooooo..  ",
+"       ..oooooooooo...  ",
+"        ............    ",
+"     oooooooooooooooo   ",
+"    o+X+X+X+X+X+X+Xo    ",
+"   oXXXXXXXXXXXXXXo     ",
+"  oXX+X+X+X+X+X+Xo      ",
+"  ooooooooooooooo       "};

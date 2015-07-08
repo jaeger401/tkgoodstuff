@@ -1,0 +1,37 @@
+/* XPM */
+static char * weather_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 24 7 1",
+/* colors */
+" 	c #cf9a30",
+".	c #843c24",
+"X	c #87ceff",
+"o	c #ffff00",
+"O	c #808080",
+"+	c white",
+"@	c #c0c0c0",
+/* pixels */
+"                        ",
+"                       .",
+"  .................... .",
+"  .XXXooXXXXXXoXXXXXXX .",
+"  .XXXXoXXOXXXXXXXXXXX .",
+"  .XXXXXXOoOXXXXXXXXXX .",
+"  .oXXoOoooooooXXoXXXX .",
+"  .ooXOoooooooOXXoXXXX .",
+"  .XXXoooooooooXXXXXXX .",
+"  .XXOoooooooooOOXXXXX .",
+"  .XOOoooooooooOoXXXXX .",
+"  .XXOoooooooooOOXXXXX .",
+"  .XXXooooooO+OXO+OOXX .",
+"  .XXXoooOOO+++O+++OXX .",
+"  .oXXoOO+++++++@+++XX .",
+"  .XXXXX++++@+++@++@OX .",
+"  .XXXXX+++++@@+++++OX .",
+"  .XXXXX+++@++++++@+OX .",
+"  .XXXXXO++@@+@@@@@@XX .",
+"  .XXXXXX@+@@@OOO@@OXX .",
+"  .XXXXXXXOOOOXXXOOXXX .",
+"  .XXXXXXXXXXXXXXXXXXX .",
+"                       .",
+" ......................."};

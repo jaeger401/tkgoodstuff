@@ -1,0 +1,21 @@
+/* XPM */
+static char * filegone_xpm[] = {
+"18 14 4 1",
+" 	s None	c None",
+".	c #808080",
+"X	c #ffffe3",
+"o	c #000000",
+"  .. .            ",
+"  . X X.          ",
+" . X X X . . . .  ",
+". X X X X X X X X ",
+" X X X X X X X X o",
+". X X X X X X X X ",
+" X X X X X X X X o",
+". X X X X X X X X ",
+" X X X X X X X X o",
+". X X X X X X X X ",
+" X X X X X X X X o",
+". X X X X X X X X ",
+" X X X X X X X X o",
+". o o o o o o o o "};

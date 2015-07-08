@@ -1,0 +1,28 @@
+/* XPM */
+static char * netup_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 18 4 1",
+/* colors */
+" 	s None	c none",
+".	c #808080",
+"X	c black",
+"o	c #7fff00",
+/* pixels */
+"                        ",
+"            .X          ",
+"           .ooX         ",
+"          .ooooX        ",
+"         .ooooooX       ",
+"        .ooooooooX      ",
+"      .oooooooooooX     ",
+"      .o..ooooooXooX    ",
+"      .. .oooooX  X.    ",
+"         .oooooX        ",
+"         .oooooX        ",
+"       XX.XoXoXXXX      ",
+"      X  .XoXooX  X     ",
+"     X X XooXXXXX  XX   ",
+"    X   X.ooXooX X   XX ",
+"  XX X X XXXXooX XX  XXX",
+"XX    X  .ooXooXX X X   ",
+"     X   .ooXooX   X    "};

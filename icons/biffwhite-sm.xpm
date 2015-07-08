@@ -1,0 +1,32 @@
+/* XPM */
+static char * biffnew_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 18 8 1",
+/* colors */
+" 	s None	c None",
+".	c #3c3c3c",
+"X	c #808080",
+"o	c #f81440",
+"O	c #ffffe3",
+"+	c #c0c0c0",
+"@	c black",
+"#	c white",
+/* pixels */
+"       ...XXXXX.ooooooXX",
+"      .....OOOO.ooooooOO",
+"     .X.....OO+.ooooooOO",
+"    @XXX.....O+.oooo.OOO",
+"    .XXXX.....+.oo.+++OO",
+"    .XXXX.....O.o++OOOOO",
+"    .XXXX.....O.oOOOOOOO",
+"    .XXXX#####O.oOOOOOOO",
+"    .XX#######O.oOOOOOOO",
+"   .##########O.oOOOOOOO",
+"   ###########+.oOOOOOOO",
+"    .#########OoooOOOOOO",
+"    ..########O.ooOOOOOO",
+"   .O..#######OOOOOOOOX ",
+"  .OOOO.######OOOOOX    ",
+"..OOOOOOO#####OOX..X    ",
+"OOOOOOOOOO##OOX....X    ",
+"OOOOOOOOOOOO....XXXX    "};

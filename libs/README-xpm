@@ -1,0 +1,22 @@
+(README for the tkxpm package)
+
+This is an extension to be used with tk4.1
+
+This package implements the image type pixmap for using
+xpm pixmap files with tk4.1.
+
+Images are created from either a pixmap file or a pixmap string with:
+       image create pixmap p1 -file pixmap.xpm
+       or
+       image create pixmap p1 -data "...."
+       where `p1' is the name of the pixmap to be created and `pixmap.xpm'
+       is a name of a xpm file. 
+
+CREDITS
+-------
+This is assembled (by Mark Crimmins; markcrim@umich.edu) around the
+source code, which is Copyright 1996 by:
+
+Ioi K. Lam
+
+(See the copyright notice at the head of tixImgXpm.c.)

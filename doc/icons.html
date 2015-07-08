@@ -1,0 +1,31 @@
+<HTML><HEAD>
+<TITLE> TkGoodStuff Images </TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+ <H1> Using Icons in TkGoodStuff  </H1> 
+
+The standard buttons (as used by Biff and Net, and the user-defined
+Buttons) may contain icons and/or text.  Icons are read in from
+files.  To specify an icon, you can give the full path name:
+ <PRE>
+/usr/include/X11/bitmaps/stopsign.xbm
+</PRE>
+or just the filename (stopsign.xbm), so long as the file is in a directory in the 
+icon path (set in the preference manager, by default to a path
+containing just the "icons" subdirectory of the tkgoodstuff librarary
+directory and the directory /usr/include/X11/pixmaps).
+
+<P>
+
+What sorts of images can tkgoodstuff handle?  You can use images that
+are bitmaps, xpm's, ppm's, and gif's.  More image formats likely will
+become "standard" in the future.
+
+<P> 
+
+Formerly, you had to compile an additional package to get xpm image
+support.  Now, this functionality is compiled and installed
+automatically at tkgoodstuff installation.
+
+</BODY></HTML>

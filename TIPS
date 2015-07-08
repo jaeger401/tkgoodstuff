@@ -1,0 +1,9 @@
+VARIOUS TIPS AND IDEAS --- Contributed tips/ideas welcome.
+----------------------
+
+[1] Suppose you want to see the output from a unix command.  Use the
+following Tcl command (either with a Button or a Menu item):
+
+  TKGDialog -title "LPQ:" -message \[ exec lpq -Plp2 \]
+
+Note: tkgoodtuff will not respond as long as shmoo is running.

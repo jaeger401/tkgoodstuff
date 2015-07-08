@@ -1,0 +1,470 @@
+8.0: Here I (MC) leave off development of tkgoodstuff.  Anyone who
+   would like to adopt it is most welcome.
+
+8.0b2:
+
+8.0b1:
+
+   - Hacked at some of the C stuff for compatibility with
+   tcl/tk8.0b1. (5/28/97) 
+
+   - Ken Hornstein's netscape-remote doesn't work with
+   Netscape 4.0 until b5, and it won't compile with tcl8.0b1,
+   so I'm just doing "netscape -remote" for now (this doesn't work
+   with Netscape 4.0 before b5 either, but it works with
+   tcl8.0b1). (5/30/97) 
+
+   - Simplified some of the configure/install stuff. (6/11/97)
+
+8.0a2:
+
+   - Fvwm2's geometry management had been a little broken, which
+   explained the odd stuff tkgoodstuff panels had to do to span a
+   screenedge.  I've sent a patch to the fvwm2 maintainer (Chuck
+   Hines) for fvwm2.0.45; the patch is included in this distribution.
+   In keeping with No-Backward-Compatibility, now you need to upgrade
+   to fvwm2.0.45 (and use the patch) to get screenedge mode to work.
+   I'm sure you can figure out how to patch fvwm95 similarly.  (Sorry
+   about that, but it relieves one of my biggest headaches.) (1/27/97)
+
+   - Font preferences use a font selector.  Relatedly, font handling
+   is a bit saner. (2/3/97; more font stuff fiddling 2/6/97)
+
+   - The default relief for buttons (globally or individually) is flat
+   (for a sleek look).  A preferences item still allows raised
+   buttons. (2/6/97)  
+
+   - Bells are more distinctive: the alarm (and Ical) bells are a
+   little louder and longer than your regular ^G beep, and in Biff
+   and Watch, the pitch of the bell corresponds to the alert level.
+   If you have several Watch'ed files and Biff'ed mailboxes, you can
+   get a nice (?) little tune on tkgoodstuff startup. (2/10/97)
+
+   - Bug fix: in revising the tkgbutton.tcl code we lost a level
+   of substitution on the unix command.  Thanks C. Roth (2/12/97)
+
+   - Help "balloons" code simplified.  Balloons no longer time out.
+  (2/13/97)
+
+   - Hierarchical listbox widget improved.  For example, you can drop
+   items "within" items that permit children.  (2/14/97)
+
+   - Bug fix: geometry handled improperly in restart caused
+   panelbuttons not to work. (2/15/97)
+
+   - Bug fix: tkgbuttons could freeze on doubleclick. (2/15/97)
+
+   - Bug fix: switches like "-font" in a button's unix command would
+   be modified. (2/16/97)
+
+   - New client "Watch".  Like Erik Kahler's "WatchDog" except it
+   allows multiple files to be watched, as in Biff.  Includes a lister
+   that functions like "tail -f", and which allows you to view in one
+   window all (or a selected group of) the files being
+   watched. (2/12/97)   
+      + Added indications in multiple-file viewer of which files have
+      changed and which one changed most recently. (2/15/97)
+
+   - WindowList:
+      + We use a "tkgframe" instead of a text widget.  Somewhat
+      zippier, and lets us put the panel tile image (if any) in the
+      background (or another tile image of the user's preference).
+      Looks a little bit different. (1/30/97)
+      + (bugfix) A panel containing only WindowList wouldn't size
+      properly, and windows wouldn't show up. (4/3/97)
+
+   - Biff:
+      + For MH folders, if folder or .mh_sequence doesn't exist, make
+      the message counter (in menu or on button) zero. (bugfix;
+      2/6/97) 
+      + Brushed up IMAP mailbox checker.  We keep the IMAP socket up
+      between checks; otherwise it's very hard to reliably check for
+      new mail.  (2/17/97) 
+      + Added preference setting for IMAP port. (4/15/97)
+      + If you choose "exmh" as the "unix command to execute instead
+      of using tkgoodstuff's lister" for an MH folder, then if exmh is
+      already running we direct exmh to the folder.
+      + (bugfix) Standard atime method reset new-mail indicator at
+      second check.
+      
+   - TkMan: 
+      + (bugfix) some button preferences were ignored (2/22/97).
+      + Raise tkman window when using button <3> to view a manpage (if
+      fvwm is used).
+
+   - Webster:
+      + Webster servers have disappeared (copyright issues, I guess).
+      So now the Webster button directs your browser to look up
+      the definition of a word at the Merriam-Webster site (a better
+      dictionary anyway, but sometimes slow response).  You can change
+      the URL if you know a better one.
+      + A. Burt contributes bugfixes and an entry dialog (which Webster
+      should have had from the start).
+      
+   - Pager: (bug fix) really ignore the tkgoodstuff main panel (in
+   tk8.0 this has the id [wm wrapper .main-panel]. (4/9/97)
+
+
+8.0a1:
+
+   - Ok, forget 4.2, we may as well work with 8.0.  Get tcl/tk8.0a2 or
+   later (a1 has relevant bugs).  As always, we don't do backward
+   compatibility (too much work).  There probably are quite a few
+   bugs.  I'd appreciate your testing this, but beware.
+
+   - Buttons and panels now can have tiled background images.
+
+   - Rewrote the tkgbutton extension code around the tkButton.c and
+   tkUnixButton.c in tk8.0.  This code allows buttons, labels, etc.,
+   to have images as well as text.  Added "-textweight" and
+   "-imageweight" options (like the option to "grid
+   row/columnconfigure).  Also wrote code for "tkgframe" widgets (like
+   frames/toplevels, but allow background tiles).
+
+   - Color preference items use the new tk color selector.
+
+   - Killed (or at least maimed) some bugs:
+      + an old one that caused us to lose some preferences changes.
+      + one that made "Fill" items cause errors.
+      + one that abandoned your specified icon-side when the panel is
+        dragged to another screen-edge.
+      + one that made gcc choke when compiling on Solaris 2.4.
+      + Text now gravitates to the bottom of button when below
+        image. 
+      + A preferences label implied that leaving the button text field
+        blank would give you text anyway (which would be silly).
+
+   - Main Menu button can have icon on it and/or text.  By default, it
+   now has a pale blue "TKG" icon in the background (I'd welcome a
+   nifty logo-ish thing if anyone out there is less art-challenged
+   than me).
+
+   - Now when you insert an item in the hierarchical list widget, the 
+   new item is always visible and highlighted.
+
+   - Biff:
+      + Menu indicating which mailboxes have new mail now can be a
+      tear-off menu.
+      + That same menu can now replace the Biff button on the 
+      tkgoodstuff panel.  (For some reason this breaks the ability to
+      drag windows from WindowList into Pager.  Tk bug?)
+      + When you click with button 3 in single-mailbox mode, or select
+      a mailbox from the menu in multiple-mailbox mode, we allow
+      an arbitrary unix command instead of calling up tkgoodstuff's 
+      new-mail lister (so you can start a mailer directed at a
+      particular mailbox instead of using our lister).
+
+4.2b1:
+
+   - New versions are for use with tcl7.6/tk4.2.
+
+   - Got rid of BLT fuctionality.  This saves many configuration
+   headaches.  However, this means that drag&drop no longer is
+   supported (you can't drag files onto tkgoodstuff buttons).  Also,
+   certain programs can fool tkgoodstuff buttons into rising before
+   the programs actually exit (namely, programs that freopen()
+   stdout).  You can get around this by calling instead a shell
+   script that simply runs the offending program:
+
+       #!/bin/sh
+       knews
+
+
+4.1:
+
+   - Auto-configuration now is more standard GNU: we assume you want
+   to install in /usr/local/... unless you specify otherwise (with
+   "./configure --prefix=/some/directory"), rather than assuming that
+   you want to install wherever tcl and tk are installed.  Also, we
+   look for tcl/tk headers in more places.
+
+   - Default is now to make tkgwish (to cut down on compilation
+   gripes), but if you configure with "--enable-libs", then you get
+   loadable libraries instead: libtkg (with image+text button code),
+   libpixmap, libtkfvwm, libtkSteal, libblt, libtkNetscape.
+
+   - Used "unprotoize" on tkNetscape.c so that SunOS's non-ANSI
+   compiler doesn't choke on the function prototypes.
+
+   - The preferences manager now uses tabbed notebooks to give you
+   that warm'n'cozy GUI feeling, at no cost in added functionality!
+   (The tabbed notebook widget, like the hierarchical list widget, is
+   core tcl/tk only.)
+
+   - New button option: "Fvwm button behavior".  If set (and using the
+   fvwm2 or fvwm95 window manager!), then the relief of the button
+   (raised/sunken) is sensitive only to the existence of a window of
+   the given name.  This way, your unix command button will be sunken
+   even if you start your application without pressing the button
+   (e.g., with a window manager menu or on a command line), and even
+   if you restart tkgoodstuff.
+
+   - Incoporated the "netscape-remote" tk extension by Ken Hornstein,
+   which makes for quicker visits to selected URL's with the WWW
+   client.
+
+   - Now you can use fvwm modules as swallow and menu items (just make
+   the unix command, e.g., "FvwmPager 0 1").
+
+   - NOTE: Various code uniformization that (a) is certain to
+   introduce a bug or two, and (b) unfortunately meant renaming some
+   preferences variables, which means that some of your preferences
+   will have to be redone.  Sorry about that.
+
+   - Biff:
+     + New mailbox method "IMAP": check and read new mail at a remote
+     IMAP server.  Consider this feature ALPHA, since I'm the only one
+     who has tested it (reports welcome).  It should work on any
+     IMAP-2bis or IMAP4 server.
+     + Biff mailboxes are now individually configurable with an hlist
+     widget gizmo.  They can have different checking intervals, etc.
+     + Mailboxes now are assigned "alert levels" of white, green,
+     yellow, or red, which determines what icon is shown for new mail.
+     
+   + Fvwm: When going to a window we give it focus or not depending on
+   whether the window has style flags set for ClickToFocus or
+   SloppyFocus.  This way we give a window focus whenever we can do so
+   without warping the pointer.
+
+   - Pager: 
+     + Clicking on the current page cycles through the open
+     windows on the page.
+     + Clicking on another page always goes to the window last
+     selected on that page, if any.
+     + Find some way of reminding people (everybody forgets this) that
+     you can move windows between pages and desktops by dragging with
+     mouse button 2 from the WindowList to the Pager.
+
+   - Dialer: Oops: we had been sending the dial command twice, which
+     could produce inexplicable "NO CARRIER" messages.  
+
+4.1b8: 6/9/96
+
+   - Incoporated bgexec and drag&drop from BLT, which means that the
+   handling of executed programs is less kludgy, and that you can drag
+   files from tkdesk to tkgoodstuff buttons.
+
+   - Incorporated TkSteal, and added the element type "Swallow", which
+   lets you put an external X application window in the tkgoodstuff
+   bar.
+
+   - Main panel is now just another panel.  This helped kill a bug
+   (which is tk's, I think) that was tweaked in the screen-edge 
+   dragging and resulted in segmentation faults.
+
+   - Added a balloon help feature (annoyance? it's defeasible).
+
+   - Added a commented example client "Example.tcl", which may take
+   a lot of the mystery out of writing a simple client.
+
+   - Added a preferences item for a list of tcl code directories to
+   prepend to auto_path (so that you can use your own tcl code without
+   writing a client).
+
+   - Buttons now can have images as backgrounds (the text is written
+   over the image): set the "side" of the icon to "background".
+
+   - WWW and Fvwm handling much improved thanks to A. Burt (who
+   contributed lots of bug fixes elsewhere too).
+
+   - WindowList: 
+     + keep usual icon when iconified (foreground color still grayed
+     out).  Easier to tell what program is iconified this way.  
+     + Added default icons for file managers (xfm and tkdesk) and man
+     page readers (xman and tkman).
+
+   - PopImap: Keep track of fetch process and don't overlap (thanks
+   T. Fries). 
+
+4.1b7: 5/22/96
+
+   There have been quite a few changes that are sure to introduce new
+   bugs.  Please inform me of any troubles, providing as much
+   information as you can about your platform, your .tkgrc, etc.
+
+   - The latest tkgoodstuff and the latest CHANGES file is now
+   available at the web site.
+
+   - The GUI installation tool has been replaced by a GNU autoconf
+   thing ("./configure" then "make", then "make install").  Probably
+   there are still importabilities, so please let me know how it goes. 
+
+   - The xpm and fvwm extensions are now wrapped into "libtkg", which
+   is compiled and installed automatically at tkgoodstuff installation
+   (this way you don't have to install, and I don't have to maintain,
+   as many packages).  If someone wants to pull them apart and
+   maintain them individually, be my guest.
+
+   - If the Tcl installation doesn't support loadable libraries, we
+   make and use tkgwish.  You can force this with 
+   "configure --enable-tkgwish".  (Worth a try if the C compilation
+   fails.)
+
+   - The panel (including main panel) and menu configurations are now
+   done with a point-and-click, drag-and-drop hierarchical list widget
+   with little icons to make you feel safe-and-secure.  It's harder to
+   screw up your configuration or menu now (or it should be when the
+   bugs get ironed out).  
+
+   - The image+text tkgbutton code is now done in C (and is part of
+   libtkg).  This simplifies and speeds up various things.
+
+   - Dragging a (screenedge mode) main panel (by its border) to other
+   edges of the screen now works without restarting tkgoodstuff.  If
+   you have used the defaults, the arrangement of icons, labels, etc,
+   changes to suit the new orientation.
+
+   - No more "Dismiss" buttons in panels produced by PanelButtons, 
+   since they can be dismissed by clicking on the PanelButton.
+
+   - Clock now shows time only by default, and toggles to show the
+   date temporarily when the mouse pointer enters the clock window.
+
+   - The tkgoodstuff menu now can be used anywhere in the Menu client
+   menu as a cascade (before it would pop up oddly).  Also, for now
+   there is only one Menu client menu (anyone sorely miss having 3?).
+
+   - We take advantage of the /proc filesystem (e.g., on Linux):
+     + Load now reads /proc/loadavg if it exists (and otherwise exec's
+       uptime).
+     + Net now by default reads /proc/net/route if it exists (and
+       otherwise exec's ifconfig).
+
+4.1b6: 4/30/96
+
+   - There is a new on-line preferences manager (so you don't have to
+   edit the rc file by hand). Start up tkgoodstuff.  You will get a
+   default configuration.  Select Preferences from the tkgoodstuff
+   menu, and choose the "Configuration" section.  Here, add, delete or
+   move Client, AddButton, AddLabelBox, stacking, and panel-creating
+   commands.  Then, save the preferences and restart.  Now you can set
+   using the preferences manager the things you used to have to adjust
+   with variables.
+
+   - tkgoodstuff: 
+
+       + New options for icon scale and font scale (small or large).
+       Also, where an iconfile is called for, you can specify
+       "%biffnew" and tkgoodstuff will look, depending on whether the
+       scale is small or large, for biffnew.xpm or biffnew-sm.xpm.
+
+       + New option for standard padding inside buttons, etc.  Adjust
+       to 0 for very busy but compact look, to 2 or 3 for more roomy
+       look.
+
+       + Now you can specify a pathlist of icon directories
+       in the preferences manager.  You also can specify an icon that
+       is somewhere in that path with just its name (full filenames
+       work too).
+
+       + In fullscreen mode, now you can "drag" the main border to
+       move the panel to another edge of the screen.  It's a quick
+       hack (if we go from horizontal to vertical or vice versa we
+       save a changed fullscreen-side preference and restart
+       tkgoodstuff), but nothing wouldn't be better.  We should really
+       be able to do this on the fly (which means regridding, and
+       resizing the auto-sized clients (Clock, Pager, Load).
+
+       + Also there is a new option Auto-minimize which in fullscreen
+       mode reduces tkgoodstuff to a line along the edge of the screen
+       when the mouse leaves the tkgoodstuff panel.
+
+       + Killed (I hope) bug without understanding why: sometimes in
+       auto-minimize mode clicking on a panelbutton would cause an
+       error whose entire stack trace is ("after" script).  Since
+       removing an "update" command from TKGPanelButtonInvoke, I no
+       longer see this problem.  Any speculations as to why would be
+       welcome!
+
+   - New Client: TkMan, by G. Dezern, interfaces with the tkman man
+   page viewer the way our WWW client interfaces with web browsers.
+
+   - WindowList: Shorten windownames before using scrollbar (patch
+   from E. Kahler).
+
+   - Biff: 
+     + Mail-checking methods now work as advertised (thanks R. Angiel
+     and G. Dezern).  I hope.
+     + Optional on-button display of number of new messages (except
+     for users of the mh method).  (Thanks R. Angiel.)
+     + Display of new messages was too fancy, or not fancy enough, to
+     work right; now we just display the entire header with the message.
+     + MH method much, much improved thanks to G. Dezern.
+     + Multiple mailbox support thanks to G. Dezern.
+
+   - Net:
+     + Added elapsed-time-of-connection counter.
+     + Deleted net-type from label.
+
+   - Jots and Calc: respond sensibly to window manager DELETEs.
+
+   - Icons: ruthless color-pruning.  Now the icons use colors from a
+   palette of 19 colors, and tkgoodstuff's default widget colors are
+   among them. 
+
+   - tkxpm and tkfvwm: much tidier configure scripts (not using
+   autoconf), relying on tclConfig.sh and tkConfig.sh.  Also, fvwm
+   source is no longer needed to compile tkfvwm (libfvwm2.a is now
+   installed at fvwm installation).  M. Beynon contributed bug fixes.
+
+4.1b5: 2/27/96
+
+  Now tkgoodstuff assumes tk4.1b1 or later (we're aiming at supporting
+  the ultimate 4.1 release, and backward compatibility is too much
+  work). 
+
+     - tkgoodstuff: 
+
+       + We use the grid geometry manager rather than pack for almost
+       everything.  TKGPack is superseded by TKGGrid.  Had hoped that
+       this would make fullscreen mode easier, but no.
+
+       + Added subpanels which are formed with StartPanel and
+       EndPanel, can be linked to a button with PanelButton, or placed
+       on the screen at startup with PutPanel.  See the tkgoodstuffrc
+       html docs for more.
+
+       + Now xpm capability is mandatory.  I hope Ioi Lam's xpm image
+       type will get in the core before our main 4.1 release.
+
+       + "create-label-box" renamed to "TKGLabelBox".  NOTE!!!
+
+       + AddButton and AddLabelBox no longer take a name as first
+       argument.  NOTE!!!
+
+       + Clock_zerotrim moved to tkgoodstuff and called TKGZeroTrim.
+
+       + Use "ps -p [pid]" if "ps [pid]" gives an error, and don't
+       assume there's a STAT column in the ps output (thanks
+       J. Robinson).
+
+       + Implement TKGAddToHook and TKGDoHook (general hook
+       utilities).  Several hooks are defined (for client use) in
+       tkgoodstuff, Fvwm.tcl, etc.
+
+       + Change default fonts to non-italic, non-bold.
+
+     - Biff: avoid tcl7.5b1's gets bugs by not doing "gets $f var".
+
+     - New client "Pager" by Eric Kahler.  Check out the current
+     version in this distribution.  Needs tkgoodstuff to be run as an
+     fvwm module (from the fvwm window manager).
+
+     - New client "Chooser" by Eric Kahler.  Pops up a window at
+     startup to let you choose among different tkgoodstuff
+     configuration files.
+
+     - New client in "alpha" stage: Calc (dec/hex/oct calculator).
+     Has paper-tape-like scrollable history.  Some features not
+     implemented, but it's fairly usable.  I'm not inclined to develop
+     this further right now, so I'd be very happy if someone were to
+     adopt it.
+
+     - New client in "beta" stage: Webster (net dictionary client).
+     Pops up a definition of the word you highlight (the current X
+     selection).  Can use unix "webster" command, but also has its own
+     internal webster client code (using the new Tcl socket stuff,
+     with a kludge required because Tcl strings can't yet contain
+     NULLs).
+
+     - The tkfvwm source is now included in the tkgoodstuf

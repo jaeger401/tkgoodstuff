@@ -1,0 +1,7 @@
+#!/usr/local/bin/tclsh8.0
+if ![string match "" [lindex $argv 0]] {
+   set dir [lindex $argv 0]
+} else {
+  set dir ./tcl
+}
+auto_mkindex $dir

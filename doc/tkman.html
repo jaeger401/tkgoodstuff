@@ -1,0 +1,32 @@
+<HTML><HEAD>
+<TITLE>TkGoodStuff TkMan</TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+<H1>TkGoodStuff TkMan</H1> 
+
+by Gary Dezern (gdezern@uniquecr.sundial.net)
+
+ <H2> Description </H2> 
+
+The TkMan client is launcher for the tkman man-page reader.
+
+<P>
+
+The TkMan button behaves as follows.  Clicking mouse button 1 on the
+TkMan button launches tkman (the button stays depressed and
+inoperative until you exit tkman).  Button 3 is used to direct tkman
+to look up the man page for the word that is the current X selection
+(e.g., highlighted with the mouse in some application).  We start
+tkman browser unless it's already running; if it's running, we simply
+send tkman instructions.  
+
+<H2>Invocation</H2> 
+
+To include the TkMan button in your panel, include in your Configuration:
+
+<PRE>
+Client TkMan
+</PRE>
+
+All parameters are adjustable in the preferences manager.

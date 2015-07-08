@@ -1,0 +1,79 @@
+# tkgoodstuff config file format 1
+TKGSet ButtonTop(windowname) top
+TKGSet StackStack6(color) darkgreen
+TKGSet Analog(minutecolor) darkgreen
+TKGSet ButtonTop(exec) {xterm -T top -e top}
+TKGSet ButtonXferLog(exec) {xterm -T Xferlog -e tail -400 -f /var/adm/xferlog}
+TKGSet TKG(orientation) horizontal
+TKGSet Analog(autoresize) 0
+TKGSet ButtonTelnet(exec) {rxvt -T telnet -e telnet}
+TKGSet Analog(minsize) 70
+TKGSet ButtonNews(exec) knews
+TKGSet StackItem7(orientation) vertical
+TKGSet StackItem6(orientation) horizontal
+TKGSet Analog(expand_to_square) 0
+TKGSet StackItem5(orientation) vertical
+TKGSet ButtonTelnet(imagefile) %telnet
+TKGSet Analog(tickcolor) cadetblue
+TKGSet Analog(bezel) 0
+TKGSet Clock(background) cadetblue
+TKGSet ButtonNetStat(exec) {xterm -T NetStat -e netstat -c}
+TKGSet StackItem4(orientation) horizontal
+TKGSet ButtonPower~Down(text) {Power\nDown}
+TKGSet StackItem3(borderwidth) 6
+TKGSet Biff(iconside) top
+TKGSet StackStack6(borderwidth) 6
+TKGSet TKG(buttontile) dimple.xpm
+TKGSet StackItem3(orientation) vertical
+TKGSet ButtonLog~Out(imagefile) %xlogo
+TKGSet Analog(hubcolor) darkgreen
+TKGSet ButtonLog~Out(text) {Log\nOut}
+TKGSet Clock(show) both
+TKGSet StackItem2(borderwidth) 6
+TKGSet StackStack6(orientation) vertical
+TKGSet Analog(hourcolor) darkgreen
+TKGSet StackItem2(orientation) horizontal
+TKGSet ButtonNews(imagefile) %news
+TKGSet Clock(aside_horiz) left
+TKGSet ButtonPower~Down(imagefile) %xlogo
+TKGSet StackItem1(orientation) vertical
+TKGSet StackItem2(color) darkgreen
+TKGSet Analog(facecolor) cadetblue
+
+-------Configuration-------
+Stack Item1
+Client Clock
+LabelBox Utilities
+Stack Item0
+Button Top
+Button Last
+Button Syslog
+EndStack
+Stack Item2
+Button Log Out
+Button Power Down
+EndStack
+EndStack
+Stack Item3
+LabelBox Network Utilities
+Stack Item4
+Client Net
+Client Load
+Stack Item5
+Button NetStat
+Button XferLog
+EndStack
+EndStack
+Stack Stack6
+LabelBox Personal
+Stack Item6
+Client Biff
+Button News
+Button Telnet
+Stack Item7
+Client WWW
+Button Weather
+EndStack
+EndStack
+EndStack
+EndStack

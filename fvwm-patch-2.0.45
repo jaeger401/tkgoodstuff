@@ -1,0 +1,14 @@
+This patches fvwm2.0.45 to let tkgoodstuff screenedge mode
+work.  I think screenedge mode now won't work with earlier versions
+of fvwm2 now.
+
+--- events.c~   Wed Jan 22 08:37:39 1997
++++ events.c    Mon Jan 27 14:26:57 1997
+@@ -1294,6 +1295,7 @@
+    * requested client window width; the inner height is the same as the
+    * requested client window height plus any title bar slop.
+    */
++  ConstrainSize(Tmp_win, &width, &height);
+   SetupFrame (Tmp_win, x, y, width, height,sendEvent);
+   KeepOnTop();
+                                                     

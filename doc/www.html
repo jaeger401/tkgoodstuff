@@ -1,0 +1,57 @@
+<HTML><HEAD>
+<TITLE>TkGoodStuff WWW</TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+<H1>TkGoodStuff WWW</H1> 
+
+<b> NOTE: Netscape's remote-control functionality is disabled in
+Netscape Communicator beta versions (at least up to beta 3).  We'll
+become compatible when it works.</b>
+
+ <H2> Description </H2> 
+
+The WWW client is a web browser launcher.
+
+<P> The WWW client can manage just one browser or more than one
+browser.  In the preferences manager, you can specify a
+space-separated list of browsers (by default, a single browser, namely
+your main default tkgoodstuff browser, which by default is netscape).
+
+<UL>
+  <LI><B>Single-browser mode:</b> If (as by default) the WWW client
+  knows about only one browser (e.g., netscape), the WWW button
+  behaves as follows.  Clicking mouse button 1 on the WWW button
+  launches your browser program (the button stays depressed and
+  inoperative until you exit the mailer program).  Button 3 is used to
+  visit the URL that is the current X selection (e.g., highlighted
+  with the mouse in some application).  If your browser is supported
+  (Netscape and lynx), then WWW starts the browser unless it's already
+  running; if it's running, WWW sends the browser instructions to go
+  to the selected URL.  This is useful, e.g., for visiting web pages
+  that are mentioned in news articles, email, etc. </LI>
+
+  <LI><B>Multi-browser mode:</b></LI> If in the preferences manager
+  you give the WWW client a list of browsers such as "netscape lynx
+  mosaic chimera hippo tkwww", then you still use buttons 1 and 3 as
+  above, except now you'll get a popup menu to choose your browser.
+  (For instance, I like lynx for its startup speed and resource usage
+  for most things, but I use netscape when I need to see graphics or a
+  netscape-specific page.)  </li> </ul>
+
+<p> The WWW client automatically knows what to do for the browsers
+lynx (using an xterm) and netscape.  It
+launches others fine if they can be started by their name.
+
+<P> Thanks to Seth Golub for the idea of using the X selection in this
+way.
+
+<H2>Invocation</H2> 
+
+To include the WWW button in your panel, include in your Configuration:
+
+<PRE>
+Client WWW
+</PRE>
+
+All parameters are adjustable in the preferences manager.

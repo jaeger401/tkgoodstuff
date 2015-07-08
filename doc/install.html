@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>tkgoodstuff</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (X11; I; Linux 2.0.29 i586) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<H1>tkgoodstuff: Availability and Installation</H1>
+
+<P>Get the source for the current version here: <A HREF="dists/tkgoodstuff8.0-final.tar.gz">tkgoodstuff8.0-final.tar.gz</A>
+Older, and sometimes more stable, versions are available <A href="dists">here</A>. </P>
+
+<P>To run this utility, you need tcl8.0 and tk8.0 (get the source at
+<A HREF="ftp://ftp.smli.com/pub/tcl">ftp://ftp.smli.com/pub/tcl
+</A>). </P>
+
+<P> (I used to maintain an ftp archive and a binary distribution for
+Linux, but I don't have the time to deal with the requests for
+assistance that that has generated.)</P>
+
+<P>Once you have the tkgoodstuff distribution</P>
+
+<OL>
+<LI>Unpack it in a directory somewhere (say, /tmp). One way (suppose you
+have the distribution in /tmp/): </LI>
+
+<PRE>    cd /tmp
+    cat tkgoodstuff8.0-final.tgz | gunzip | tar xpf -
+          </PRE>
+
+<LI>cd to the source directory: </LI>
+
+<PRE>    cd /tmp/tkgoodstuff8.0-final
+          </PRE>
+
+<P>Then type </P>
+
+<PRE>    ./configure</PRE>
+
+(If your relevant version of Tcl/Tk is in an odd place, such as
+/smurf/gleb/lib/tclConfig.sh, you can specify --prefix=/smurf/glep.)
+
+<P>If all goes well, you can type </P>
+
+<PRE>    make
+          </PRE>
+
+<P>and if all is still well, type </P>
+
+<PRE>    make install
+          </PRE>
+
+<P>This process will compile C code needed by tkgoodstuff, and install
+tkgoodstuff's files in the appropriate places.  Look in the <A href="FAQ">FAQ</A> for
+hints if you encounter problems.
+
+</P>
+
+<P>Once you are finished, you can remove the source directory if you like
+(all the needed files will have been copied to a library directory). </P>
+
+<LI>If you have a standard unix spool setup, simply running tkgoodstuff
+should give you a working setup. Enter the Preferences manager via the
+tkgoodstuff menu to customize your setup. </LI>
+
+<LI>If you have problems, check the <A HREF="FAQ">FAQ</A> before
+      emailing the <a href="mailto:tkgoodstuff@merv.philosophy.lsa.umich.edu">tkgoodstuff
+	mailing list</a></li>.
+
+<LI>You probably will want to tell your window manager not to put a border,
+handles, or a title on tkgoodstuff, and perhaps to leave it always on top
+of other windows, and perhaps to make it &quot;stick&quot; in the same
+spot on the screen when you move about a virtual desktop. You may also
+want it not to be in the circulate list (the list of windows you go to
+by hitting alt-TAB or some key sequence). To do all of this in fvwm2 add
+the following lines to your .fvwm2rc: </LI>
+
+<PRE>Style &quot;tkgoodstuff&quot; NoTitle, NoHandles, Sticky, WindowListSkip, StaysOnTop
+Style &quot;tkgoodstuff&quot; BorderWidth 0,CirculateSkipIcon,CirculateSkip
+          </PRE>
+
+<P>HOWEVER, if you use <A HREF="fvwm.html">tkgoodstuff as an fvwm module
+</A>(which I recommend), you needn't do this, as tkgoodstuff will do it
+automatically. If you use some other window manager, read its documentation---almost
+certainly you can achieve most of the same effects.</P>
+</OL>
+
+<P><IMG SRC="http://wwwcgi.itd.umich.edu/cgi-bin/counter?link=http://www-personal.umich.edu/~markcrim/tkgoodstuff/install.html">
+</P>
+
+</BODY>
+</HTML>

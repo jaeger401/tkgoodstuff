@@ -1,0 +1,37 @@
+/* XPM */
+static char * www_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 24 7 1",
+/* colors */
+" 	s None	c None",
+".	c #0000aa",
+"X	c #000055",
+"o	c #00aa00",
+"O	c black",
+"+	c #0000ff",
+"@	c #7fff00",
+/* pixels */
+"        ......XX.       ",
+"     .....oXXXXXOXX     ",
+"    .....X.XXXXXXXOO    ",
+"   ....o....XoooXXOOO   ",
+"  .....ooooooo.ooXXXXO  ",
+" .......ooooooo.XXXXXOX ",
+" .......ooooo.oo.XXXXXX ",
+" ...++++@ooooooo.XXXXXX ",
+".....+.+o@@o.oooo.XXXXOO",
+"...++++.@ooooooo..XXXXOX",
+"..+.++.+@@@ooooo.XXXXOXO",
+"..+.+++++@ooooo...XXXXXO",
+"..+++++++@@@ooo...XXXXOO",
+"..+.+++++@oo.......XXXXO",
+"....+++++++o.o....XXXXOX",
+" .+++++.+.+.+oo...oXXXOX",
+" ....+.+++....o.oooooOXO",
+" ...+++.+.+.....oooooOXX",
+"  ..+.++.+......oooooOX ",
+"   .............oooooX  ",
+"    ............ooooo   ",
+"     .........XXXooO    ",
+"      .......XXXXoX     ",
+"        ...XX.XXo       "};

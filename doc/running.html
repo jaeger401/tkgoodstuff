@@ -1,0 +1,89 @@
+<HTML><HEAD>
+<TITLE>Running TkGoodStuff</TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+ <H1> Running TkGoodStuff </H1> 
+
+<H2> Table of Contents (this document) </H2>
+
+<UL>
+<a href="#invocation"><LI> Invocation </LI></a>
+<a href="#geometry"><LI> Geometry </LI></a>
+<a href="#configfile"><LI> Determination of Configuration File </LI></a>
+</UL>
+
+<a name="invocation"><H2> Invocation </H2></a>
+
+You invoke tkgoodstuff by issuing a command of the following form:
+<PRE>
+tkgoodstuff [-geometry -3+0] [-f configfilename ]
+</PRE>
+Here, the brackets indicate optional arguments, which are discussed below.
+<P>
+
+<a name="geometry"><H2> Geometry </H2></a>
+
+There are two geometry modes: screen-edge and normal:
+
+<h3> Screen-edge mode </h3>
+
+If you set screen-edge mode ("no" by default) to "left", "right", "top",
+or "bottom", tkgoodstuff will span that edge of the screen.
+
+<h3> Normal mode </h3>
+
+If fullscreen mode is "no" (as by default), tkgoodstuff looks in two
+places for geometry (screen location) information.  A geometry
+specification is a string that identifies a point on the screen by its
+x and y distances in pixels from the top (or bottom) and left (or
+right) edges of your screen:
+ <TABLE>
+ <TR>
+<TH> Specification </TH> <TH> Puts the tkgoodstuff Panel . . . </TH>
+ </TR>
+<TR>
+<TD> +1-123 </TD>  <TD> 1 pixel from the left and
+123 pixels from the bottom of the screen </TD> 
+</TR>
+<TR>
+<TD> -1+123 </TD>  <TD> 1 pixel from the right and
+123 pixels from the bottom of the screen </TD> 
+</TR>
+ </TABLE>
+
+<P>
+tkgoodstuff chooses the first geometry specification it finds in the
+following ways: 
+<OL>
+  <LI> In the command line, as follows:
+       <PRE>
+       tkgoodstuff -geometry +34-88
+       </PRE>
+       </LI>
+  <LI> In the current preferences.
+  </LI>
+</OL>
+
+<a name="configfile"><H2>Determination of Configuration File  </H2></a>
+
+  tkgoodstuff needs a configuration file to run.  It uses the first
+  file it finds in the following ways:
+  <OL>
+  <LI> Named on the command line, as follows (where "configfilename" is the name
+       of your file):
+       <PRE>
+       tkgoodstuff -f configfilename
+       </PRE>
+       </LI>
+  <LI> In your home directory (as set in the environment variable
+       HOME) under the name .tkgrc.</LI>
+  <LI> In the tkgoodstuff directory (by default,
+       /usr/local/lib/tkgoodstuff), under the name <B>system-tkgrc</B>.
+</OL>
+
+Using the "-f configfilename" form allows you to have many different
+panels defined for different purposes.
+
+
+</BODY></HTML>

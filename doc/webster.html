@@ -1,0 +1,32 @@
+<HTML><HEAD>
+<TITLE>TkGoodStuff Webster</TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+<H1>TkGoodStuff Webster</H1> 
+
+ <H2> Description </H2> 
+
+The Webster client directs your web browswer to retrieve
+dictionary-definitions over the net.
+
+<P> To use it, highlight a word as the X selection, and click on the
+Webster button; if all goes well, you will soon see a popup containing
+the definition of the word.
+
+<P> By default, this client produces a button on your tkgoodstuff
+panel.  But you can set preferences so that it will not, in which case
+you can use the (Tcl) command "WebsterDefine" as a Menu client item.
+
+<P>       You can customize the URL if you have access to a
+better dictionary server.  If you know of a web page that has a "form" to fill
+out to get a definition, to determine the needed URL you may have to look
+at the html source of the page.  Typically, you will want something like:
+<PRE>
+http://www2.hti.umich.edu/bin/oed/oed-idx.pl?q1=@word@
+</PRE>
+That's what I use, but I think only University of Michigan people can access
+that server.  The Webster default is Merriam-Webster's server:
+<PRE>
+http://www.m-w.com/cgi-bin/mweb?book=Dictionary&va=@word@
+</PRE>

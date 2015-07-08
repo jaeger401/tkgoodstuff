@@ -1,0 +1,52 @@
+<HTML><HEAD>
+<TITLE>TkGoodStuff Net</TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+<H1>TkGoodStuff Net</H1> 
+
+ <H2> Description </H2> 
+
+The Net client is a dialup (PPP/SLIP/TERM) link status indicator and
+up/down toggler.
+
+<P>
+Clicking on the Net button instructs the Net client to toggle (open or
+close) the network link.
+
+<P>One possible way to have Net open a dial-in link (e.g., ppp or term)
+is to use the GUI program <a href="dialer.html">Dialer</a>, which is
+included in the tkgoodstuff distribution, to dial your modem and set
+up the link.</P>
+
+<P>The client periodically checks whether the link is up or down, and
+displays a "lit" up-arrow and/or "Net up", or an "unlit" down-arrow
+and/or "Net down" accordingly.  The client checks the line status more
+frequently for a while after it executes a command to open or close
+the link.
+
+<P> By default, the label on the Net button, when connected, shows the
+elapsed time of the connection (up to 24 hours).
+
+<P>
+The Net client also can periodically issue a "ping" command, which may
+be useful for keeping active a link that the remote host would
+disconnect if idle for too long.
+<P>
+
+<H2>Invocation</H2> 
+
+All parameters are adjustable in the preferences manager.  
+
+<P> If the default doesn't work (give it a try), you need to specify a
+unix command to test whether the net is up (the command should return
+successfully (exit status zero) if the net is up, and otherwise.  The
+default is
+
+<PRE> ifconfig | grep ppp <\PRE>
+
+You also may need to specify a command to get your IP address if you
+want to use the auto-ping feature.  The command should return an
+address like "141.211.43.12".  The default is:
+<PRE> ifconfig | grep inet.*P-t-P | sed s/inet.*r:// | sed s/P-t-P.*//
+<\PRE>

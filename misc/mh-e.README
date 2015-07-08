@@ -1,0 +1,21 @@
+mh-e.README
+-----------
+
+To use the emacs mailreader mode mh-e as your mailreader with
+tkgoodstuff's Biff client, you need a unix command that will tell
+emacs to start mh-e for you, and that will exit only when you quit
+mh-e.  The shell script mh-e does that (and makes a new frame for
+it called "MH-E").  
+
+To install, you should:
+
+  1. Put MH-E somewhere in your executable path, and be sure it is 
+  executable.
+
+  2. Put frame-mh-e.el in your emacs load-path (e.g., in the
+  site-lisp directory).
+
+To use it, put "set Biff_mailer MH-E" in your .tkgoodstuffrc
+
+Enjoy,
+markcrim@umich.edu

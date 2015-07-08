@@ -1,0 +1,25 @@
+/* XPM */
+static char * filer_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"16 16 3 1",
+/* colors */
+" 	s None	c None",
+".	c #ffffe3",
+"X	c #3c3c3c",
+/* pixels */
+"                ",
+"                ",
+"                ",
+"                ",
+"        ...     ",
+"  ..........    ",
+"  ..........X   ",
+"  ..........X   ",
+"  ..........X   ",
+"  ..........X   ",
+"  ..........X   ",
+"  ..........X   ",
+"   XXXXXXXXXX   ",
+"                ",
+"                ",
+"                "};

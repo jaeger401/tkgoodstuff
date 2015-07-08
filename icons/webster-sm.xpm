@@ -1,0 +1,25 @@
+/* XPM */
+static char * webster_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 15 4 1",
+/* colors */
+" 	s None	c none",
+".	c #ce0000",
+"X	c #808080",
+"o	c white",
+/* pixels */
+"                        ",
+"             ...        ",
+"          ........      ",
+"       .............    ",
+"    ................... ",
+" .....................X ",
+" ....................XX ",
+" .X................oooo ",
+" .XX............oooooo. ",
+"  XXXX........ooXoo.    ",
+"   XXXX....Xooooo.      ",
+"    .XXX..XooXoo.       ",
+"      .XXXoooo.         ",
+"       .XXo.            ",
+"        ...             "};

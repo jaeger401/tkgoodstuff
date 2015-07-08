@@ -1,0 +1,28 @@
+/* XPM */
+static char * netwt_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 18 4 1",
+/* colors */
+" 	s None	c none",
+".	c #7fff00",
+"X	c #808080",
+"o	c black",
+/* pixels */
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"           ..           ",
+"          .XX.          ",
+"      oooXX..XXooo      ",
+"     o   ......   ooo   ",
+"ooooo   ........  o  ooo",
+"o    o ..XXXXXX.. o    o",
+" o   o XX......XXo    o ",
+"  o  oo  ......X  oo o  ",
+"ooooo    ......X    oooo"};

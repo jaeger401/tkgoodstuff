@@ -1,0 +1,15 @@
+(README for the libtkg package)
+
+This is an extension to be used with tk8.0, which includes:
+
+  - a tkgbutton and tkgframe extension, with image+text buttons
+    (labels, checkbutton, radiobuttons, and menubuttons), as
+    well as "tiled" images in frames and buttons (and labels,
+    etc.).
+  - a tkfvwm extension 
+  - an xpm image type extension
+
+The latter two have their own README's.
+
+This package is compiled and installed automatically in the
+tkgoodstuff installation process.

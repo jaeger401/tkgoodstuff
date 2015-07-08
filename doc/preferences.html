@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE> tkgoodstuff Preferences Manager</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (X11; I; Linux 2.0.29 i586) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<H1>Configuring TkGoodStuff with the Preferences Manager</H1>
+
+<P>The preferences manager lets you view and set all preferences and configuration
+parameters for tkgoodstuff. You enter it from the tkgoodstuff menu (which,
+by default, is available by clicking on the clock and also within a menu
+on the Menu client button).</P>
+
+<P>In addition to selecting and arranging the elements of your panels,
+you can adjust fonts, colors, icons, &quot;tiled&quot; backgounds, the
+default screen-edge or orientation, and a zillion other things, including
+the setup for each client (e.g., the Menu client's menu, the Biff client's
+mailboxes, etc.).</P>
+
+<P>Changes do not take effect until they are saved and tkgoodstuff is restarted.
+All configuration information is saved to the configuration file (by default,
+&quot;.tkgrc&quot; in the user's home directory---which you can edit
+      by hand if things go so wrong that the preferences manager won't
+      work). </P>
+
+<P><A NAME="variables"></A></P>
+
+<H2>Setting Preferences </H2>
+
+<P>It should be fairly obvious how to set various preferences: you find
+them through the notebook pages and menus in the preference manager and
+set them, e.g., by clicking on an indicator or by entering text.</P>
+
+<P>You might want to set a preference based on an environment variable.
+You can do this by using &quot;$env&quot; as follows. To set a certain
+preference to a value based on the user's home directory, you can enter
+this: </P>
+
+<PRE>$env(HOME)/whatever
+ </PRE>
+
+<P><A NAME="client"></A></P>
+
+<H2>Including and Configuring a Client </H2>
+
+<P>To include a client (for example, Clock), you enter the preferences
+manager and use mouse button 3 at the desired point in the configuration
+(which is presented as a hierarchical list) to choose &quot;Insert&quot;,
+at which point you enter the name of the client.</P>
+
+<P>You configure a client in the preferences manager (double click on its
+entry in the configuration).</P>
+
+<P><A NAME="addbutton"></A></P>
+
+<H2>Adding a Button</H2>
+
+<P>You can easily add a button to display an icon and/or a bit of text,
+which runs a command when pressed. You need to decide:</P>
+
+<UL>
+<LI>If you want an icon on your button, then the icon filename. <B>The
+file can contain an image of any of several formats (see <A HREF="icons.html">Icons
+</A>for more).</B> </LI>
+
+<LI>If you want a bit of text on the button (either under the icon or by
+itself), then the text string (a &quot;\n&quot; in the string makes a line
+break for multi-line text). E.g., &quot;Telnet to/nwork&quot;. </LI>
+
+<LI>The (unix) command to run. E.g.: </LI>
+
+<PRE> xdir &quot;xless /var/adm/syslog&quot; 
+ rxvt -T Syslog -sl 400 -e {&quot;tail -400 -f /var/adm/syslog&quot;}
+ rxvt -T Syslog -sl 400 -e \&quot;tail -400 -f /var/adm/syslog\&quot; </PRE>
+
+<P>(The last two are equivalent.)</P>
+</UL>
+
+<P>You add the button in the Prefernces manager by choosing &quot;Insert&quot;
+with mouse button 3 at the desired place in your configuration, and entering
+the desired information. Double-click on the Button's entry in the configuration
+to configure it. </P>
+
+<P>Notes: </P>
+
+<UL>
+<LI>The expression &quot;@selection@&quot; in a unix or tcl command will
+be replaced by the current X selection. </LI>
+
+<LI>By default, a unix command button stays down and inoperative after
+you press it until the launched unix command terminates. This is so you
+can see that you're already running that command. You can configure the
+button to pop back up after launching the command, ready to launch the
+command again. </LI>
+
+<LI>When you press an already-depressed unix command button, <B>if</B>
+you are running tkgoodstuff as an fvwm module, by default you move to the
+next window that is named by the name of the unix command of the button.
+But you can configure the button to look for an alternative window name
+(for instance, the program tkman names its window &quot;TkMan&quot;, netscape
+&quot;Netscape&quot; and so on). </LI>
+</UL>
+
+<P><A NAME="addpanelbutton"></A></P>
+
+<H2>PanelButtons</H2>
+
+<P>A PanelButton is like a standard tkgoodstuff button, except that what
+it does is to produce an additional tkgoodstuff panel adjacent to the panel
+containing the PanelButton (this allows you to group a of buttons together
+and have them appear when you press a single button in your main panel).
+To add such a button use the &quot;Insert&quot; mouse-3 menu item, and
+double-click to configure. </P>
+
+<P>See below on how to create Panels. <A NAME="putpanel"></A></P>
+
+<H2>PutPanel</H2>
+
+<P>Instead of having a Panel produced by a PanelButton, you might want
+an additional Panel to be placed on the screen at startup. To do this,
+(as always) use the &quot;Insert&quot; mouse-3 menu item, and double-click
+to configure. </P>
+
+<P>See below for how to create Panels. <A NAME="addlabelbox"></A></P>
+
+<H2>Adding a Label Box </H2>
+
+<P>To add a box containing a bit of text (which differs from a button in
+look, in color, and in that it doesn't run any command), use the good old
+&quot;Insert&quot; trick. <A NAME="swallow"></A></P>
+
+<H2>Swallowing an Application </H2>
+
+<P>If you want to include a utility that tkgoodstuff doesn't provide, you
+can incorporate it in your tkgoodstuff panel as a &quot;Swallow&quot; item.
+Use the preferences manager to do this. </P>
+
+<P>WARNING: this can be tricky. Some hints: </P>
+
+<UL>
+<LI>Before starting, be sure you know the windowname of the window that
+you want to swallow. By default we look for the name of the application,
+but many applications produce windows with different names. If you don't
+specify the correct name, tkgoodstuff will wait forever for the window
+to show up. </LI>
+
+<LI>It sometimes helps to specify in the application command line a geometry
+for the application that is larger than the window you want to produce.
+</LI>
+
+<LI>If the application has a set size, you can find out what it is with
+fvwm's Identify module (if you use fvwm). </LI>
+
+<LI>In your application command line, you can specify the tkg background
+color (for your application to use) as <B>\$background</B> (same for foreground
+and some other resources). Also, use <B>\$width</B> to specify the Swallow
+window width (same for height). </LI>
+
+<LI>If you are running tkgoodstuff as an fvwm module, you can swallow other
+fvwm modules (like FvwmPager) simply by using the module name in place
+of a unix command. </LI>
+</UL>
+
+<P><A NAME="fill"></A></P>
+
+<H2>Filling Space </H2>
+
+<P>If you are using screen-edge mode (for a bar covering one edge of the
+screen), then by default all the buttons, clients, etc., are stacked together
+in the middle of the bar. But you can indicate where the buttons, clients,
+etc., are to be broken apart by the item &quot;Fill&quot; (which you insert
+into your configuration like anything else). For example, suppose you have
+screen-edge mode set to &quot;bottom&quot;, you have four buttons in your
+bar, and you include &quot;Fill&quot; items between the first and second,
+and between the third and fourth Button items. Then, your bar will contain
+the first button at the far left, the second and third buttons together
+in the middle, and the fourth button at the far right. (The WindowList
+client behaves like a &quot;Fill&quot; region; in particular, in the absence
+of Fill commands, it uses all available space.) <A NAME="stacks"></A></P>
+
+<H2>Stacks</H2>
+
+<P>The Screen Geometry screen-edge and orientaton preferences govern the
+main orientation of your panel; it may be either horizontal or vertical.
+If you simply add elements (Clients, Buttons, etc.), these elements will
+be stacked all in a row left-to-right (if horizontal) or top-to-bottom
+(if vertical). This probably is what you want in an always-on-top desktop
+button bar. However you may want to stack two or three small buttons together,
+or to generate a fancier panel, with several rows or with several bundles
+of related buttons and label-boxes of different sizes, as in this <A HREF="http://www-personal.umich.edu/~markcrim/tkgoodstuff/stacks.jpg">screenshot
+</A>(available only on the tkgoodstuff web page; to see it otherwise, just
+run &quot;tkgoodstuff -f stacks&quot; in the sample-rc directory). </P>
+
+<P>A Stack is itself an item, which is placed in your panel just like a
+Button. The difference is that a Stack can have items placed within it.
+These items are stacked together in the orientation you choose (you can
+also configure other features of a Stack). To explain the stacking commands
+it is easiest just to explain how the fancy example was created. We start
+horizontally (the Orientation preference is set to horizontal). We will
+put together two things horizontally, both of them vertical Stacks. These
+are the only items that are in the main stack itself. The first vertical
+Stack starts with the Clock client and a labelbox (&quot;Utilities&quot;).
+Then we want three buttons side-by-side, so we start a new horizontal Stack.
+In this Stack we insert three Buttons. This puts us back in the construction
+of our first (vertical) Stack, which so far contains the Clock, the &quot;Utilities&quot;
+label, and the Stack we have just finished. The last thing in this vertical
+Stack will be another horizontal Stack, this one with a colored border
+four pixels wide. Two Buttons are inserted in this bordered Stack. Now
+we're done with the first main vertical Stack. </P>
+
+<P>This puts us back in the orignal (horizontal) orientation, outside of
+all Stacks. So the next item we define will go to the right of the big
+vertical Stack we have just defined. This item will be an even bigger vertical
+Stack, which contains a label box, a horizontal Stack (which contains the
+Net Client, the Load Client, and a vertical Stack of three Buttons) and
+a (gold-bordered) vertical Stack, which contains a label box and a horizontal
+Stack (which contains three Buttons and a vertical Stack containing three
+Buttons). </P>
+
+<P>I hope that makes the working of the stacking apparatus clear. If not,
+play around with it and you will figure it out. <A NAME="panels"></A></P>
+
+<H2>Panels</H2>
+
+<P>You create a Panel by &quot;Inserting&quot; it anywhere in your configuration.
+It doesn't matter where you insert it, since it is not an item that is
+placed inside the main panel, but rather is placed by a PutPanel item or
+a PanelButton. Various features of the Panel can be configured. </P>
+
+</BODY>
+</HTML>

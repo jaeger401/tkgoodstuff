@@ -1,0 +1,39 @@
+This is dated: we haven't consistently kept up with this, so most
+stuff is in English.  Sorry.
+
+Experimental Internatinalization
+--------------------------------
+
+Given the value of the language variable (and the fallback default
+tkg_language one) , TkGoodStuff looks first for the file
+
+	$HOME/.tkgoodstuff_$language
+
+and eventually source it, then source the file
+
+	$TKG_source_dir/$language.tcl
+
+file (which should use setifunset for setting translations) if it exists
+and then unconditionally source
+
+	$TKG_source_dir/$tkg_language.tcl
+
+Note that the client label is stored in the Tkg_labels array, so when
+one internationalizes one of the modules, say Biff, the code to remove
+the button becomes something like
+
+	    set index [.tkgpopup index $Tkg_labels(Biff)]
+	    .tkgpopup delete $index [expr $index +1]
+
+The translations are the responsibility of the module, so one can make
+full internationalized procedures if needed.
+  The only exception is that TkGoodStuff will install a client menu with
+a label got from $Tkg_labels($client) where client is the client name
+(e.g. Clock, Biff, Net, etc...)
+
+Internationalization can also choose default values for other things,
+see the Clock module for example.
+
+See english.tcl and francais.tcl for examples.
+
+Yves Arrouye <Yves.Arrouye@imag.fr>

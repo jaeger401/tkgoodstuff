@@ -1,0 +1,27 @@
+/* XPM */
+static char * graphic_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"16 16 5 1",
+/* colors */
+" 	s None	c None",
+".	c #ce0000",
+"X	c #ffff00",
+"o	c #7fff00",
+"O	c #0000ff",
+/* pixels */
+"                ",
+"                ",
+"          ...   ",
+"       ......   ",
+"      ....XXX   ",
+"     ...XXXXX   ",
+"    ...XXXooo   ",
+"   ...XXooooo   ",
+"   ..XXXoooOO   ",
+"   ..XXooOOOO   ",
+"  ..XXoooOOO    ",
+"  ..XXooOO      ",
+"  ..XXooOO      ",
+"                ",
+"                ",
+"                "};

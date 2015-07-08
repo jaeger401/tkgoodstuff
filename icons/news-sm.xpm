@@ -1,0 +1,31 @@
+/* XPM */
+static char * news_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 21 4 1",
+/* colors */
+" 	s None	c none",
+".	c #808080",
+"X	c white",
+"o	c black",
+/* pixels */
+"                        ",
+"          ..            ",
+"         ..X.           ",
+"        .XoXX...        ",
+"       .XoXoXXX..       ",
+"      .XoXoXoXoXX..     ",
+"     .X..XXoXoXoX.....  ",
+"    ..XXXoXXoXoXXoXoX.. ",
+"   .X.o.XXo.XXoXoXoXoXX.",
+"  .XoXXXoXXX.X...XooXX.o",
+" ..XXooXX.o.X.....XXXo..",
+" .Xo.XX..XX........Xo..o",
+" ...X.o.XoX.......Xo...o",
+" ...oXXo.XX......Xo...o ",
+"  .....X.oXX....Xo...o  ",
+"    ......X..XXXo...o   ",
+"      ...X.X.oXo....o   ",
+"        ....XXX....o    ",
+"          ........o     ",
+"            .....o      ",
+"             ..oo       "};

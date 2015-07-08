@@ -1,0 +1,33 @@
+/* XPM */
+static char * xlogo_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 24 3 1",
+/* colors */
+" 	s None	c none",
+".	c #3c3c3c",
+"X	c #87ceff",
+/* pixels */
+"                        ",
+"                        ",
+" .......             ...",
+"  .XXXXX.           .XX.",
+"   .XXXXX.         .XX. ",
+"    .XXXXX.       .XX.  ",
+"     .XXXXX.     .XX.   ",
+"      .XXXXX.   .XX.    ",
+"       .XXXXX. .XX.     ",
+"        .XXXXX.XX.      ",
+"         .XXXXX.        ",
+"        .X.XXXXX.       ",
+"       .XX .XXXXX.      ",
+"      .XX.  .XXXXX.     ",
+"     .XX.    .XXXXX.    ",
+"    .XX.      .XXXXX.   ",
+"   .XX.        .XXXXX.  ",
+"  .XX.          .XXXXX. ",
+" .XX.            .XXXXX.",
+" ...              ......",
+"                        ",
+"                        ",
+"                        ",
+"                        "};

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>tkgoodstuff</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (X11; I; Linux 2.0.29 i586) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<BR>
+<BR>
+<H1>tkgoodstuff</H1>
+
+Screenshots:
+<blockquote>
+<A HREF="screenshots.html">A few sample configurations</A><BR>
+<A HREF="http://mars.superlink.net/ekahler/fvwm2.desktop.html">
+Eric Kahler's desktop</A><BR>
+<A HREF="http://www.coffeenet.net/help/index.html">
+CoffeeNet Help Page</A>
+</blockquote>
+
+<P>Tkgoodstuff for the X Window System is a utility panel---normally,
+a button bar.  It is easily configured and modified using a GUI
+preferences manager. Some &quot;clients&quot; are included:
+analog/digital alarm clock, new-mail indicator, log file watcher, WWW
+browser launcher, dialup network dialer and status indicator, note
+taker/manager, calendar program alarm daemon, POP/IMAP mail fetching
+scheduler, system load display, system menu, and fvwm (window manager)
+support, including a window list (buttons for all running
+applications) and virtual desktop pager. See below for details about
+the clients. In addition to the clients, you can configure buttons to
+run commands, and you can embed any X program window in your bar (such
+as xosview, FvwmPager, etc.).</P>
+
+<P>Tkgoodstuff, especially when used with the fvwm window manager, can
+be set up to behave in many ways like the Win95 taskbar (spanning any edge
+of the screen, containing buttons for every running application, with the
+ability to &quot;hide&quot; along the side of the screen and to be &quot;dragged&quot;
+to another side, with a GUI-configurable menu, etc.). But it is not a taskbar
+&quot;clone&quot; and is considerably more customizable. </P>
+
+<H2>Included Clients </H2>
+
+<UL>
+<LI><B><A HREF="clock.html">Clock: </A></B>analog and/or digital time and/or
+date alarm clock. </LI>
+
+<LI><B><A HREF="biff.html">Biff: </A></B>a feature-rich mail checker.</LI>
+
+<LI><B><A HREF="net.html">Net: </A></B>indicates the status of a PPP or
+SLIP connection and allows you to bring the connection up or down with
+a click. Also can display net uptime, and can periodically &quot;ping&quot;
+so that the remote host won't close an inactive connection. Included is
+a GUI <A HREF="dialer.html">Dialer</A> program, which you can call from
+Net to dial your modem (with nice repeat-dial features), log you in, and
+start your network software while you watch. </LI>
+
+<LI><B><A HREF="jots.html">Jots: </A></B>A tool for writing, editing, and
+searching for notes: diary entries, addresses, ftp sources, ideas, etc.
+Support for easy shuffling between multiple &quot;folders&quot; of entries.
+</LI>
+
+<LI><B><A HREF="www.html">WWW: </A></B>Launch your web browser or instruct
+the browser to visit the URL in the current X selection. </LI>
+
+<LI><B><A HREF="watch.html">Watch: </A></B>This client watches one or more
+files (e.g., log files) for changes with configurable alerts (and can display
+the files). </LI>
+
+<LI><B><A HREF="load.html">Load: </A></B>An xload-like system load-average
+display (auto-scaling graphical, digital, or both). Button 1 launches an
+xterm running (for example) &quot;top&quot;. </LI>
+
+<LI><B><A HREF="menu.html">Menu: </A></B>A button that produces a menu,
+which is easily configured in the GUI preferences manager. </LI>
+
+<LI><B><A HREF="webster.html">Webster: </A></B>Retrieve (over the net)
+the dictionary definition of a word (the current X selection). </LI>
+
+<LI><B><A HREF="ical.html">Ical: </A></B>The program <A HREF="http://www.research.digital.com/SRC/personal/Sanjay_Ghemawat/ical/home.html">ical</A>
+(as opposed to this client) is a nice calendar program. The client reads
+your ical calendar and serves as an alarm daemon, posting alarm notices
+to your screen when ical would if you had it running.</LI>
+
+<LI><B><A HREF="popimap.html">PopImap: </A></B>periodically run pop or
+imap client to get any new mail on remote mail server. Don't get too excited:
+the fetching is done by a program or script that you provide (e.g., <A HREF="http://locke.ccil.org:80/~esr/esr-freeware.html">fetchmail</A>).
+No button is produced by this client (though it produces some stuff in
+the tkgoodstuff popup menu). </LI>
+
+<LI><B><A HREF="windowlist.html">WindowList: </A></B>For use with Fvwm,
+produces buttons for open/iconified windows (like the Win95 taskbar).</LI>
+
+<LI><B><A HREF="pager.html">Pager:</A></B> For negotiating desktops with
+Fvwm. </LI>
+
+<LI><B><A HREF="chooser.html">Chooser:</A></B> (by Eric Kahler) This client,
+at tkgoodstuff start-up, posts a list of tkgoodstuff configuration files
+to choose from. </LI>
+
+<LI><B><A HREF="tkman.html">TkMan:</A></B> (by Gary Dezern) The program
+<A HREF="http://http.cs.berkeley.edu/~phelps/tcltk/tkman-help.html">tkman</A>
+is a very nice man-page browser. Start tkman, or tell tkman to look up
+the man page for the word in the current X selection. </LI>
+</UL>
+
+<H2>Customizing Features</H2>
+
+<H3>User-defined buttons </H3>
+
+<P>The &quot;standard&quot; user-defined buttons can be configured to show
+either icons or (multi-line) text labels or both at once (with the icon
+on any side or in the background), and global options can request no labels
+or no icons. Among the unlimited possibilities here are use of the current
+X selection in your command, execution of unix and/or Tcl commands, and
+more. See the documentation on configuration for more. </P>
+
+<H3>&quot;Swallow&quot; Windows </H3>
+
+<P>If you really like xosview or xdaliclock or whatever, you can embed
+it within your panel as a Swallow item (tkgoodstuff &quot;swallows&quot;
+the application window). </P>
+
+<H3>Label boxes </H3>
+
+<P>A label box contains text, e.g., to label a group of related buttons.
+</P>
+
+<H3>Stacks </H3>
+
+<P>You can form vertical or horizontal stacks of elements (e.g., buttons
+and labels or other stacks), that can be nested indefinitely. If you're
+not careful, you might get something like the large example above (or worse).
+</P>
+
+<H3>Panels </H3>
+
+<P>You can create multiple panels (of buttons, labels, etc.) to place at
+different parts of the screen or to call up (like a menu) from a &quot;PanelButton&quot;.
+
+<H2>Documentation </H2>
+
+<P>The only documentation for tkgoodstuff is in these html pages, which
+are included in the distribution's &quot;doc&quot; subdirectory. From the
+&quot;About tkgoodstuff (help)&quot; window accessed from the popup menu,
+you can launch a built-in help browser or your web browser (by default,
+netscape) to read these pages (either your local copy, installed automatically
+during tkgoodstuff installation, or the latest copy on the net). </P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,36 @@
+/* XPM */
+static char * netscape_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 24 6 1",
+/* colors */
+" 	c black",
+".	c #0000aa",
+"X	c #c0c0c0",
+"o	c white",
+"O	c #808080",
+"+	c #0000ff",
+/* pixels */
+"                        ",
+"                        ",
+"  .. .. .. .. .. .. .. .",
+" .... . . .... . . .... ",
+"     . . .    . . .    .",
+" .... . . .... . . .... ",
+" .....Xoo.......oo......",
+"  . ...Ooo.. .. OX... ..",
+" .... .Xooo .. .OX.. .. ",
+" ......OXOoo....OX......",
+" ......XX.XoO...OX......",
+" ......OX..XoO..OX......",
+" ......XX...oXX.OX......",
+" ..+...OX....oX.OX.+....",
+" .+.+.+OX..+.+XXOX..+.+.",
+" ....+OXoooooooXXXOOO..+",
+" +OXoXOXX        OXXXXOO",
+" XX    Oo             OX",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"                        "};

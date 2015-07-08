@@ -1,0 +1,55 @@
+<HTML><HEAD>
+<TITLE>Dialer</TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+<H1>TkGoodStuff Dialer</H1> 
+
+ <H2> Description </H2> 
+
+Dialer is a stand-alone program that is included in the tkgoodstuff
+distibution.  It dials your modem, executes a login script, and
+(optionally) issues a command to set up the network (such as a pppd
+command).
+
+<P> It USED TO BE that to run Dialer you needed the expectk program,
+but no longer (now Dialer runs on basic tcl/tk). </B>
+
+<P>
+Dialer expects a Hayes-compatible modem (like nearly all modems sold
+these days).
+</P>
+
+<P>
+
+The status of the connection-attempt is presented in a dialog box on
+the screen.  You see what number is being dialed, what speed you
+connect at, and the reason for any failure to connect.
+
+<P>
+
+All settings are configurable in the Settings window (click the
+"Settings" button).  You need to set your modem port and port speed,
+and the phone number (or list of numbers, or a repeat-dialing script)
+you want to dial.  Optionally, you can set one or two modem init
+strings and a unix command to execute when successfully connected
+(like pppd).  You also can construct a login script.  This is all done
+on-line and is self-documenting (use the "Help" menu in the Settings
+window).  You save your settings information in a file in the usual
+way (with "Save" in the pull-down "File" menu), and you can have
+different settings stored in different files.
+
+<P>
+
+At startup you can indicate your settings file and also a command to
+run right away (the command "Dial" starts the dialing just like
+hitting the "Dial" button.  So, to start dialing right away, you issue
+a unix command like this:
+<PRE>
+Dialer /home/markcrim/.DialSettings Dial
+</PRE>
+
+<P> I use Dialer on my Linux home computer, and I do not have access
+to any other unix platforms with dial-out modems, so I cannot be sure
+this will work on other platforms.  But I have heard good things from 
+people on various Unix platforms, so it's worth a try.

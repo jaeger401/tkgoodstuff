@@ -1,0 +1,7 @@
+1. In tkUnixPort.h, I globally replaced ../compat with compat.
+
+2. In tkXAccess.c:
+   Remove large-scope #if.
+   include time.h &/or sys/time.h ala tclUnixPort.h
+
+

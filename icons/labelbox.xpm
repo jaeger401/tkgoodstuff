@@ -1,0 +1,17 @@
+/* XPM */
+static char * labelbox_xpm[] = {
+"11 11 3 1",
+" 	s None	c None",
+".	c white",
+"X	c black",
+"           ",
+"......     ",
+".X.........",
+".X....XXX..",
+".X....X.X..",
+".X....XX...",
+".XXX..X.X..",
+"......XXX..",
+"     ......",
+"           ",
+"           "};

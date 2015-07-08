@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>  TkGoodStuff PopImap </title> 
+    
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple"
+    alink="red">
+      <bodytext>
+      
+      <h1>  TkGoodStuff PopImap Utility </h1> 
+      
+      <a name="function"><h2>Function</h2></a>
+      
+      <p> The PopImap client automates the fetching of your mail from remote POP
+      or IMAP servers to your local machine.  Once the mail is on your local
+      machine, you can use any mail reader you like (rather than having to
+      make do with one you don't really like that supports the needed client
+      protocol). </p>
+      
+      <p> The client really is little more than a scheduler for a unix
+	mail-fetching command that you provide (it is not itself a POP or IMAP
+	client; you need to get a mail-fetching client, on which see below).
+	You configure the client by telling it what unix command will get your
+	new mail from your remote server, and (optionally) what remote command
+	will fetch an entire remote mailbox (including old messages), and
+	replace a local mailbox with it.</p>
+	
+      <h3>Interaction with other tkgoodstuff Clients</h3>
+      
+      <p> One convenient feature is that the Net client knows about PopImap
+	and vice versa, so that if both clients are used, PopImap doesn't try
+	to check for mail when the Net line is down, and when the Net line
+	goes up, Net schedules the periodic PopImap new mail checking to start
+	right away (so that your new mail gets to you quickly). </p>
+	
+      <a name="use"><h2>Use</h2></a>
+      
+      <p> In the preferences manager you will need to set preferences that
+	indicate how frequently to look for new mail on the remote server, as
+	well as the unix command that does the looking, and (optionally) the
+	unix command that copies the entire remote mailbox over the local one
+	(replacing it).  The real work comes in setting up these unix
+	commands, which may require finding some programs you don't
+	yet have. </p>
+	
+      <p><b>See also <a href="biff.html">Biff's</a> IMAP method, which doesn't 
+	  require any external IMAP program.</b> </p>
+	  
+      <a name="popclients"><h2>Where to Find POP and IMAP Fetching
+	  Utilities</h2></a> 
+	  
+      <p> Here I have a decided lack of expertise.  I would very much appreciate
+	pointers to stuff I don't know about. </p>
+      <ul>
+	<li> POP </li></ul>
+      <ul>
+	<li> "fetchpop".  The author claims it is very stable and
+	  feature-rich. Get it at
+	  ftp://sunsite.unc.edu in pub/Linux/system/Mail/pop (it's not just
+	  for linux). </li>
+	<li> "popclient".  Also at sunsite. </li>
+	<li> "pop-perl".  Also at sunsite. </li>
+      </ul>
+      <li> IMAP </li>
+      <ul>
+	 <li> <a
+	    href="ftp://ftp.cac.washington.edu/mail/imap-utils.tar.Z">
+	 imapcopy</a>, which requires
+	  <a href="ftp://ftp.cac.washington.edu/mail/imap.tar.Z">
+	    imap.tar.Z</a> to compile.  This utility nondestructively
+	    copies all of the remote mailbox, appending all of its
+	    messages to your local spool file or other local mailbox
+	    (including mh folders!).
+	</li>
+	<li> imapmove (simply a unix link to imapcopy), which deletes
+	all of the remote mailbox after copying as in imapcopy.
+	</li>
+	<li> I encourage anyone with a little knowledge of C to look
+	at the imapcopy utility to get a sense of what's possible with
+	a little hacking.  </li>
+      </ul>
+    </UL>
+      
+      <h2>Invocation</h2>
+      
+      <p> All parameters are adjustable in the preferences manager. </p>
+      
+    </bodytext></body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>TkGoodStuff Fvwm Client</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (X11; I; Linux 2.0.29 i586) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<H1>TkGoodStuff Fvwm2 Interface</H1>
+
+<H2>Description </H2>
+
+<P>Tkgoodstuff can interact with the <A HREF="http://www.hpc.uh.edu/fvwm/">fvwm2
+window manager</A> (or the <A HREF="http://ltiwww.epfl.ch/~barth/fvwm95.html">fvwm95</A>
+window manager; but see below).</P>
+
+<P>The main reason for the Fvwm2 interface is to enable some of tkgoodstuff's
+cool clients: <A HREF="windowlist.html">WindowList </A>and <A HREF="pager.html">Pager</A>.
+The Fvwm2 interface also makes the default behavior of a depressed unix
+command button to move to and raise the (next) window in which the command
+is running.  Also, for each button you can choose "fvwm button
+      behavior", which means that the button's relief will depend on
+      whether there is any open window whose name matches a specified
+      pattern (whether you started the app with the tkgoodstuff button
+      or not). </P>
+
+<P>It also allows you to: </P>
+
+<UL>
+<LI>Use the tcl commands of the tkfvwm extension in your buttons and clients.
+To give a hint of the sort of thing you can do by sending commands to fvwm,
+here is a Tcl command (contributed by Eric Kahler), that tells fvwm to
+post its &quot;Utilities&quot; menu (you can make a button run this command):
+</LI>
+
+<PRE>fvwm send 0 {Menu Utilities Nop &quot;&quot;}
+ </PRE>
+
+<LI>Use the tcl command &quot;FvwmNextOrExec&quot; (say, with a button),
+which raises the (next) window of the application you specify if it's already
+running, or starts the application if not. </LI>
+
+<LI>Use the tcl command &quot;FvwmNext&quot;, which moves to and raises
+the next instance of the application you specify. </LI>
+</UL>
+
+<H2>Invocation and Use</H2>
+
+<P><B>You do not do anything in your tkgoodstuff preferences to use the
+fvwm2 interface. It loads automatically if tkgoodstuff is started as an
+fvwm module.</B> </P>
+
+<P><B>The fvwm2 interface REQUIRES that you run fvwm2</B>. It has usually
+worked with fvwm95 just fine; however, I don't keep up with fvwm95, so
+there's no guarantee that it will work with the latest version. Note that
+fvwm2 allows &quot;mini-icons&quot; in the title bar, and otherwise lets
+you set the appearance of windows to look much like fvwm95. Fvwm2 is also
+very well supported. I recommend it highly. </P>
+
+<P><B><FONT SIZE=+1>You must start tkgoodstuff as an fvwm2 module</FONT></B>.
+To do this, in your .fvwm2rc set ModulePath to a directory path which includes
+your tkgoodstuff library directory. For example: </P>
+
+<PRE>ModulePath /usr/lib/X11/fvwm2:/usr/local/lib/tkgoodstuff</PRE>
+
+<P>You now have an fvwm2 module called &quot;tkgoodstuff&quot;, which you
+invoke like any other fvwm2 module, e.g., in fvwm2's InitFunction. Here's
+how: </P>
+
+<PRE>AddToFunc InitFunction &quot;I&quot; Module tkgoodstuff</PRE>
+
+<P>You also can make &quot;Module tkgoodstuff&quot; an item on your fvwm
+menus. To specify a configuration file, use &quot;Module tkgoodstuff -f
+filename&quot;. </P>
+
+<P>Also, if you use tkgoodstuff as a module, the fvwm2 window style pararmeters
+for the tkgoodstuff panel will be set automatically (though you can defeat
+this in the preferences manager). </P>
+
+<H3>FvvwmNextOrExec </H3>
+
+<P>You can use FvwmNextOrExec wherever a tcl command is called for---e.g.,
+in a Button or Menu item, as follows: </P>
+
+<PRE>FvwmNextOrExec emacs</PRE>
+
+<P>This will zap you to a running emacs window, or start emacs if there
+is no such window. (What it actually does it to tell fvwm to move to and
+raise the next window called &quot;emacs&quot; (either its window name
+or its resource class) in tkgoodstuff's list of windows if there is one,
+and to run the unix command &quot;emacs&quot; otherwise. An optional second
+argument is for a different window name to look for (in case the window
+is not called by the program name. This example, however, is probably not
+something you would need to do, because a Button with the unix command
+&quot;emacs&quot; (when tkgoodstuff is a module) does better automatically:
+it makes the raised button run emacs and stay down until the emacs session
+is over, AND clicking on the sunken button now focuses on an emacs window
+(if there are several, we cycle through them).  But FvwmNextOrExec
+might be useful, for instance, if you prefer not to have a sunken button.</P>
+
+<P>Also, there is a button option 'Fvwm button behavior', available in
+the preferences manager, that makes the button's relief depend on whether
+there are any windows of a given name (thus the button will be sunken even
+if you started emacs before starting tkgoodstuff). </P>
+
+<H3>FvwmNext and FvwmPrev</H3>
+
+<PRE>FvwmNext cmd ?name?</PRE>
+
+<P>(Primarily for &quot;advanced&quot; users and client writers.) These
+commands enable you to go to the next (or previous) window with a given
+name. Repeated calls will cycle through all windows with the given name.
+</P>
+
+</BODY>
+</HTML>

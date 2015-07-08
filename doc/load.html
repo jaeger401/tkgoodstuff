@@ -1,0 +1,35 @@
+<HTML><HEAD>
+<TITLE>TkGoodStuff Load</TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+<H1>TkGoodStuff Load</H1> 
+
+ <H2> Description </H2> 
+
+<P> The Load client is a system load indicator, which displays a graph of
+the current and recent system load and/or a digital display of the
+current load.
+
+<P> The graphical display is a histogram drawn to an automatically
+adjusting scale.  A "Scale" preference parameter (by default 1) sets
+the initial and <b> smallest </b> maximum of the graph.  If the load
+exceeds the current maximum, the scale automatically doubles, and a
+red "tick" line is drawn to mark the old maximum.  Thus, by default
+the tick lines represent loads of 1, 2, 4, 8, and so on (this is less
+cluttered than evenly spaced tick lines).  When possible, the graph is
+scaled back up.
+
+<P> Clicking mouse button 1 on the Load button (by default) launches
+an xterm running "top" (so you can see what's causing the load).
+
+<P>The system load information is obtained from the /proc filesystem
+if possible, and otherwise from the "uptime" command.  Load will work
+only if the output of the uptime command includes the current system
+load as the third from last field on the line (as is standard).  (If
+you would prefer to obtain the load some other way, you need to change
+the procedure "GetLoad" in the file Load.tcl.)
+
+<H2>Invocation</H2> 
+
+All parameters are adjustable in the preferences manager.

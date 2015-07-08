@@ -1,0 +1,48 @@
+<HTML><HEAD>
+<TITLE>TkGoodStuff Menu</TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+<H1>TkGoodStuff Menu</H1> 
+
+ <H2> Description </H2> 
+
+<P> The Menu client produces a button that produces a menu.  The menu
+is configured within the preferences manager.
+
+<P> Alternatively, the Menu client will not make a button, but will
+replace the main tkgoodstuff popup menu as the menu produced by mouse
+button 1 on the clock face.
+
+<H2>Configuration</H2> 
+
+<P> In the preferences manager, there is a GUI menu-editing tool, which 
+(hopefully) is self-explanatory.
+
+<P> The following items can be added to the menu:
+
+<P> <B>Menu</b> <BR>
+This creates a new sub-menu within whatever menu you are currently
+defining.
+
+<P> <B>Execute</b> <BR> This creates a menu item to which you give a
+label and assign a unix command line to be executed when this item is
+selected.
+
+<P> <B>Tcl Command</b> <BR> This creates a menu item to which you give a
+label and assign a Tcl command line to be executed when this item is
+selected.
+
+<P> <B>tkgoodstuff Menu</b> <BR> This creates a menu item within whatever menu
+you are currently defining, which is labelled "TkGoodStuff Menu", and
+which produces the tkgoodstuff popup menu when selected.  This is so
+that you can get the tkgoodstuff menu even if you replace it with the
+Menu client menu on the clock face (by telling the Menu client not to
+produce a button).
+
+<P> <B>Separator</b> <BR>
+This inserts a horizontal separator line in the menu.
+
+<P><B>Run . . .</B>
+This inserts an item in the menu which, when selected, calls up a
+dialog window allowing you to enter a unix command to execute.

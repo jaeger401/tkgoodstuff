@@ -1,0 +1,41 @@
+<HTML><HEAD>
+<TITLE>tkgoodstuff Watchdog</TITLE> 
+<!-- Changed by: Eric Kahler,  Feb-3-1996 -->
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+<H1>tkgoodstuff Chooser</H1> 
+
+by Eric Kahler (ekahler@mars.superlink.net)
+
+ <H2> Description </H2> 
+
+Chooser is a simple client which allows the user to restart
+tkgoodstuff with a different configuration file, without having to
+exit tkgoodstuff.  Choosing a different configuration can be done by
+pressing one of a series of buttons which correspond to configuration
+files, and/or by selecting a configuration file choice from the
+tkgoodstuff menu.
+
+<H2>Invocation and Variables</H2> 
+
+While the Chooser client can be added from the preferences manager,
+quite possibly you will want to use it in a panel that contains only
+the Chooser client, and so doesn't contain the Clock or the Menu
+client, and so offers no way to reach the preferences manager.  Thus,
+you might want to configure a configuration file by hand.  Here is an
+example (of an entire tkgoodstuff configuration file) that should show
+you how to explicitly specify configuration files:
+
+<PRE>-------Configuration-------
+TKGSet ChooserList {/usr/local/lib/tkgconfigs/config1 /usr/local/lib/tkgconfigs/config2} 
+Client Chooser</PRE>
+
+Here is how to select every file in a given directory:
+
+<PRE>-------Configuration-------
+TKGSet ChooserList /usr/local/lib/tkgconfigs 
+Client Chooser</PRE>
+
+It is crucial that the first line of the configuration file is as in these
+examples (the word "Configuration" with seven dashes on either side).

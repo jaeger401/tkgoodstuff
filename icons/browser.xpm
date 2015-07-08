@@ -1,0 +1,29 @@
+/* XPM */
+static char * browser_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"16 16 7 1",
+/* colors */
+" 	s None	c None",
+".	c #0000ff",
+"X	c #00aa00",
+"o	c #000055",
+"O	c black",
+"+	c #7fff00",
+"@	c #0000aa",
+/* pixels */
+"                ",
+"                ",
+"      ...       ",
+"    .XooooO     ",
+"   ..XXXXXoO    ",
+"   ...XX.Xoo    ",
+"  ....XXXXooO   ",
+"  ....+XX@@oo   ",
+"  @...+X@@@oo   ",
+"   ...@@X@@o    ",
+"   @@@.@@@XX    ",
+"    @@@@@@X     ",
+"      @@o       ",
+"                ",
+"                ",
+"                "};

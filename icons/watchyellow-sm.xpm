@@ -1,0 +1,21 @@
+/* XPM */
+static char * filefull_xpm[] = {
+"18 14 4 1",
+" 	s None	c None",
+".	c #808080",
+"X	c yellow",
+"o	c #000000",
+"  .....           ",
+"  .XXXX.          ",
+" .XXXXXX......... ",
+".XXXXXXXXXXXXXXXXo",
+".XXXXXXXXXXXXXXXXo",
+".XXXXXXXXXXXXXXXXo",
+".XXXXXXXXXXXXXXXXo",
+".XXXXXXXXXXXXXXXXo",
+".XXXXXXXXXXXXXXXXo",
+".XXXXXXXXXXXXXXXXo",
+".XXXXXXXXXXXXXXXXo",
+".XXXXXXXXXXXXXXXXo",
+".XXXXXXXXXXXXXXXXo",
+".ooooooooooooooooo"};

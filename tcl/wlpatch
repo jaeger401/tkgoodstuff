@@ -1,0 +1,29 @@
+--- WindowList.tcl~	Thu Feb  6 13:27:11 1997
++++ WindowList.tcl	Fri Feb 21 21:24:57 1997
+@@ -23,7 +23,7 @@
+ 	 "Active foreground" $TKG(butactiveforeground)
+     TKGColorDeclare FWL(abg) {} \
+ 	 [list Clients WindowList WindowButtons Colors]\
+-	 "Background" $TKG(butactivebackground)
++	 "Active background" $TKG(butactivebackground)
+     TKGColorDeclare FWL(ifg) {} \
+ 	 [list Clients WindowList WindowButtons Colors]\
+ 	 "Foreground for iconified windows" $TKG(disabledforeground)
+@@ -52,6 +52,8 @@
+ 	-vartype optionMenu\
+ 	-label {Normal relief for buttons.}\
+ 	-optionlist {flat raised}
++    TKGDeclare FWL(borderwidth) 1 -typelist [list Clients WindowList WindowButtons Misc]\
++	-label "How deep is sunken or raised relief (pixels)?"
+     TKGDeclare FWL(padding) "" -typelist [list Clients WindowList Misc]\
+ 	-label "How many pixels of padding around window buttons?"
+     TKGDeclare FWL(nofvwmicons) 1 -typelist [list Clients WindowList Misc]\
+@@ -245,7 +247,7 @@
+     array set FWL${id}-params [FWLDefaultsArray]
+     set FWL($id,pathname) $FWL(window).l$id
+     TKGButton FWL$id -pathname $FWL($id,pathname)\
+-	-borderwidth 1 -relief $FWL(butrelief)\
++	-borderwidth $FWL(borderwidth) -relief $FWL(butrelief)\
+ 	-textweight 1 -imageweight 0
+     FWLBind $id
+     set FvwmW($id,iconic) 0

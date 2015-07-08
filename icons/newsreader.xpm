@@ -1,0 +1,27 @@
+/* XPM */
+static char * newsreader_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"16 16 5 1",
+/* colors */
+" 	s None	c None",
+".	c #ffffe3",
+"X	c #c0c0c0",
+"o	c #808080",
+"O	c #3c3c3c",
+/* pixels */
+"                ",
+"                ",
+"  .         .   ",
+"  ...      ..   ",
+"  .X...o...O.   ",
+"  .O.O.o.X.X.   ",
+"  .X.X.o.O.X.   ",
+"  .O.X.o.X.O.   ",
+"  .X.O.o.X.X.   ",
+"  .X.X.o.O.X.   ",
+"  ...O.o.X...   ",
+"    ...o..      ",
+"      .o        ",
+"                ",
+"                ",
+"                "};

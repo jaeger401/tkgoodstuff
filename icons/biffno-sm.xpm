@@ -1,0 +1,30 @@
+/* XPM */
+static char * biffno_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 18 6 1",
+/* colors */
+" 	s None	c none",
+".	c #808080",
+"X	c #ffffe3",
+"o	c black",
+"O	c #f81440",
+"+	c #3c3c3c",
+/* pixels */
+"    .................   ",
+"  .XXXX.XXXXXXXXXXXXX.  ",
+"  XXXXXX.XXXXXXXXXXXXXX ",
+" .XXXXXXX.XXXXXXXXXXXXX.",
+".XXXXXXXX.XXXXXXXXXXXXXX",
+".XXXXXXXX.XXXXXXXXXXXXXX",
+".XXXXXXXX.XXXXXXXXXXXXXX",
+".XXXXXXXX.XXXXXXXXXXXooo",
+".XXXXXXXX.XX...oooooooOO",
+".XXXXXXXX.Xooooo.....OOO",
+".XXXXXXXX.XXXXXXXXXX.OOO",
+".XXXXXXXX.XXXXXXXXXX.OOO",
+".XXXXXXXX.XXXXXXXXXX.OOO",
+"  .XXXXXX.XXXXXXXX.. OOO",
+"     .XXX.XXXXX.     Oo ",
+"       ...X..+++        ",
+"         .++++++        ",
+"         +++....        "};

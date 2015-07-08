@@ -1,0 +1,43 @@
+<HTML><HEAD>
+<TITLE>TkGoodStuff WindowList Client</TITLE> 
+
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="blue" vlink="purple" alink="red">
+
+<H1>TkGoodStuff WindowList Client</H1> 
+
+ <H2> Description </H2> 
+
+<P>This is for use with the <a href="http://www.hpc.uh.edu/fvwm/">fvwm2
+window manager</a>, when tkgoodstuff is started as an fvwm2 module (see
+the documentation for tkgoodstuff's <a href="fvwm.html">Fvwm2</a>
+functionality for how to do this).  WindowList produces a window
+containing buttons for each open or iconified window on your display
+(here's a <a
+href="http://www-personal.umich.edu/~markcrim/tkgoodstuff/win95.jpg">
+screenshot</a>).
+
+<P> The sunken button corresponds to the current (focused) window, and
+when a window is iconified, its button is grayed-out.  Clicking mouse
+button 1 on a window's button brings the window into focus (even if
+it's iconified).  Clicking button 3 iconifies the window.  If the
+Pager client is being used, button <2> allows you to "drag" a window
+(from its WindowList button) to any page on the display.  If the
+buttons fill up the window so that some are out of view, the window
+names are abbreviated, and if necessary a scrollbar is created.  If
+screen-edge mode is "no", you can adjust the height and width of the
+window manually in the preferences manager.
+
+<P> Since this functions as an icon manager, you probably don't want
+fvwm2 to post icons.  By default, tkgoodstuff will tell fvwm2 not to
+post icons.  But this will affect only windows created after
+tkgoodstuff starts up.  So if you normally start other apps (that you
+might iconify) before tkgoodstuff, you may want to tell fvwm2 yourself
+not to post icons.  In fvwm2.0, the command (in your .fvwm2rc) is:
+<pre>Style "*" NoIcon</pre> Be sure to put that AFTER any other Style
+lines that define Icon in your .fvwm2rc (except for windows for which
+      you do want icons).
+
+<H2>Invocation</H2> 
+
+All parameters are adjustable in the preferences manager.
+

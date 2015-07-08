@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE> Writing TkGoodStuff Clients </TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (X11; I; Linux 2.0.26 i586) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<H1>Writing TkGoodStuff Clients </H1>
+
+<H2>Table of Contents (this document) </H2>
+
+<UL>
+<LI><A HREF="#general">General Information </A></LI>
+
+<LI><A HREF="#interface">Basic Client Interface </A></LI>
+
+<UL>
+<LI><A HREF="#combowindow">TKGButton</A> </LI>
+
+<LI><A HREF="#tkgmakebutton">TKGMakeButton</A> </LI>
+
+<LI><A HREF="#labelbox">TKGLabelBox </A></LI>
+
+<LI><A HREF="#tkggrid">TKGGrid</A> </LI>
+
+<LI><A HREF="#popup">Adding to the Popup Menu </A></LI>
+
+<LI><A HREF="#periodic">TKGPeriodic </A></LI>
+</UL>
+
+<LI><A HREF="#other">Other Utilities </A></LI>
+
+<UL>
+<LI><A HREF="#tkgdialog">TKGDialog</A></LI>
+
+<LI><A HREF="#tkgdeclare">TKGDeclare </A></LI>
+
+<LI><A HREF="#setimage">SetImage </A></LI>
+
+<LI><A HREF="#debug">DEBUG </A></LI>
+</UL>
+</UL>
+
+<P><A NAME="general"></A></P>
+
+<H2>General Information</H2>
+
+<P>Clients are housed in files with the extension &quot;.tcl&quot;. They
+might do anything at all, though what they in fact mainly do is to produce
+buttons or displays and to run and to schedule tasks. Clients can be very
+complex (like the Jots client, which is a notecard manager), or very simple.
+</P>
+
+<P>There is a commented example of a very simple button-producing client
+called <A HREF="Example">&quot;Example&quot;</A> in the file tcl/Example.tcl
+in the tkgoodstuff library directory. You might start with it. </P>
+
+<P>This document is not as complete as it should be, but I think it's at
+least mostly correct, and hopefully it's better than nothing.  Still,
+your best bet may be to look at the actual code for various clients.
+
+ <A NAME="interface"></A></P>
+
+<H2>Basic Client Interface</H2>
+
+<P>Let's assume you are writing a client named &quot;Foo&quot;. Your Foo.tcl
+file is &quot;sourced&quot; by tkgoodstuff when it reads the configuration
+file (or when Foo is added in the preferences manager). If you have defined
+a procedure &quot;FooDoOnLoad&quot;, it is called then, as is &quot;FooDeclare&quot;,
+if it exists (&quot;FooDeclare&quot; is called also when Foo is added in
+the preferences manager). &quot;FooDeclare&quot; should contain all your
+calls to TKGDeclare (for declaring preferences items). TKGDeclare is described
+below. </P>
+
+<P>When the panel is being drawn (or redrawn following, e.g., a screen-edge
+move), the procedure &quot;FooCreateWindow&quot; is called if it exists.
+Ordinarily &quot;FooCreateWindow&quot; will make a call to TKGMakeButton
+or TKGLabelBox to produce a button or display window in the panel at the
+appropriate place. After all panels have been drawn, the procedure &quot;FooStart&quot;,
+if it exists, will be called. During a screenedge move, the procedure &quot;FooSuspend&quot;
+will be called, if it exists, the client window will be ungridded, and
+then when the panel is redrawn &quot;FooCreateWindow&quot; and &quot;FooStart&quot;
+will be called. <A NAME="combowindow"></A></P>
+
+<H3>TKGButton</H3>
+
+<P>A &quot;tkgbutton&quot; is a button with either text, an icon, or both
+on its face. This command can be used either to create a button (but see
+TKGMakeButton) or to configure an existing button. If TKGButton is used
+to create a button, the button is not placed in the tkgoodstuff panel until
+TKGGrid is invoked. The syntax is as follows: </P>
+
+<PRE>TKGButton name arguments
+</PRE>
+
+<P>The <B>name</B> is an arbitrary name for the window (containing only
+characters suitable for variables). The other arguments are all optional
+(most also take &quot;modified&quot; forms; see the &quot;-mode&quot; switch
+for more about this): </P>
+
+<LI><B>-pathname </B>pathname <BR>
+This switch is used when creating the button (but see also TKGMakeButton,
+which is the easier way to make a TKGButton for inclusion in the tkgoodstuff
+panel). The value must be a tk pathname. </LI>
+
+<LI><B>-image </B>tkimage <BR>
+The value must be an already-created tk image. The button will display
+the image. </LI>
+
+<LI><B>-text </B>textstring <BR>
+The button will display the text indicated. </LI>
+
+<LI><B>-font </B>(standard font specifier) <BR>
+The button will display text (if any) using this font. </LI>
+
+<LI><B>-exec </B>command <BR>
+The button, when pressed, will lauch the indicated unix command. Regular
+Tcl substitution is performed on the command string at execution. </LI>
+
+<LI><B>-command </B>command <BR>
+The button, when pressed, will perform the indicated tcl command. Regular
+Tcl substitution is performed on the command string at execution. </LI>
+
+<LI><B>-menu </B>menu <BR>
+The button will be a tkgmenubutton, and produce the indicated menu. No
+&quot;exec&quot; or &quot;command&quot; will be performed. </LI>
+
+<LI><B>-iconside </B>left, right, top, bottom, or background <BR>
+This sets the side of the button taken by the icon, when your button has
+both an icon and text (&quot;top&quot; by default). If &quot;background&quot;,
+then the text is written over the icon. </LI>
+
+<LI><B>-staydown</B> 1 or 0 <BR>
+If 1 (which is the default), the button will stay down and inoperative
+after you press it until the launched unix command terminates. This is
+so you can see that you're already running that command. If 0, the button
+pops back up after launching the command, ready to launch the command again.
+</LI>
+
+<LI><B>-usebutton2</B> 1 or 0 <BR>
+If 1 (which is the default), mouse button 2 will execute the button's unix
+command, if any, whether the button is up or down, and whether or not the
+unix command is already running. </LI>
+
+<LI><B>-windowname</B> name <BR>
+This affects what happens when you press an already-depressed unix command
+button <B>if</B> you are running tkgoodstuff as an fvwm module. By default
+you move to the next window that is named by the name of the unix command
+of the button. But this switch allows you to look for an alternative window
+name (for instance, the program tkman names its window &quot;TkMan&quot;,
+netscape &quot;Netscape&quot; and so on). </LI>
+
+<LI><B>-font</B> font <BR>
+The font to use for text on the button </LI>
+
+<LI><B>-ignore</B> 1 or 0 <BR>
+If 1 (0 is the default), we will ignore the global iconsonly and labelsonly
+variables. </LI>
+
+<LI><B>-state </B>active or normal <BR>
+The button goes into the active state automatically when the mouse pointer
+enters, and into the normal state when it leaves. The state affects the
+button's colors (see also the &quot;mode&quot; switch). This is useful
+to call manually primarily when you pack a child window in a button (as
+in the Load client) and want to set its colors. </LI>
+
+<LI><B>-foreground</B> color <BR>
+<B>-background</B> color <BR>
+<B>-activeforeground</B> color <BR>
+<B>-activebackground</B> color <BR>
+These set the colors for the button. </LI>
+
+<LI><B>-padding </B>(any number) <BR>
+The number of pixels of empty space to put around icons and labels in buttons.
+</LI>
+
+<LI><B>-mode </B>mode <BR>
+Switches the button to the indicated mode. Each mode for a button is associated
+with values for text, image, exec, command, font, staydown, windowname,
+and four colors: foreground, background, activeforeground, and activebackground.
+Switching modes is the way to change a button's appearance and/or function
+dramatically with a simple command. By default a button is in the &quot;normal&quot;
+mode. For instance, Biff defines &quot;nomail&quot; and &quot;newmail&quot;
+modes, and Net defines &quot;netup&quot;, &quot;netdn&quot;, and &quot;netwt&quot;
+modes. </LI>
+
+<P>To set values for a mode, use modified switches like the following:
+</P>
+
+<PRE>     TKGButton Talk -foreground(notalk) red \
+         -exec(notalk) {mesg y}
+     </PRE>
+
+<P>(Unmodified switches set the values for the current mode.) The parameters
+of the button are stored in a global array. If the <B>name</B> is &quot;BarBar&quot;,
+the pathname of the created window will be stored in the global variable
+<B>BarBar-params(window)</B>, the current mode in <B>BarBar-params(mode)</B>.
+Mode-sensitive parameters are stored as follows: e.g., the text is stored
+in <B>BarBar-params(text,normal)</B> (supposing the button is in the normal
+mode, as it is by default). (In fact this is the &quot;textvariable&quot;
+for the button; setting it changes the button text directly.) There are
+no &quot;unmodified&quot; parameters for mode-sensitive parameters. For
+instance <B>BarBar-params(text)</B> does not exist. </P>
+
+<P>TKGButton is a wrapper around the widget commands &quot;tkgbutton&quot;
+and &quot;tkgmenubutton&quot;(part of libtkg). <A NAME="tkgmakebutton"></A></P>
+
+<H3>TKGMakeButton</H3>
+
+<PRE>TKGMakeButton name . . .
+</PRE>
+
+<P>Creates the indicated button, assigns it an approriate pathname, and
+packs it into the tkgoodstuff panel (at the position appropriate to the
+current stacking context). If the name is &quot;Foo&quot;, the pathname
+is stored in the variable Foo-params(pathname). Takes the same arguments
+as TKGButton (which it calls, in fact), except that it is silly to give
+a &quot;-pathname&quot; switch to TKGMakeButton. <A NAME="labelbox"></A></P>
+
+<H3>TKGLabelBox</H3>
+
+<P>Creates a &quot;label box&quot; is a window with text on its face. The
+arguments are as follows: </P>
+
+<PRE>TKGLabelBox name [-label &quot;label text&quot;]
+</PRE>
+
+<P>(The square braces indicate that the argument is optional. If no label
+text is supplied, you get an empty frame, which is what Clock and Load
+use.) </P>
+
+<P>The <B>name</B> is an arbitrary name for the window (containing only
+characters suitable for variables). If the <B>name</B> is &quot;BarBar&quot;,
+the pathname of the created window will be stored in the global variable
+<B>BarBar_window</B>. </P>
+
+<P>The <B>text</B> is a text string that will be displayed in the window.
+The window containing (just) this text has the pathname <B>BarBar_window.label.msg</B>.
+The textvariable for the label is <B>BarBar-lbparams(text)</B> <A NAME="tkggrid"></A></P>
+
+<H3>TKGGrid</H3>
+
+<PRE>TKGGrid pathname
+</PRE>
+
+<P>Packs the indicated window into the current tkgoodstuff panel (at the
+position appropriate to the current stacking context). <A NAME="popup"></A></P>
+
+<H3>Adding to the Popup Menu</H3>
+
+<P>Two commands are provided for adding to the popup menu: </P>
+
+<H4>TKGPopupAddClient</H4>
+
+<P>adds a cascade menu entry in the main popup menu. It is invoked as follows:
+</P>
+
+<PRE>TKGPopupAddClient clientname</PRE>
+
+<P>Suppose your <B>clientname</B> is FooBar. Then, this command generates
+a cascade menu entry labelled &quot;FOOBAR:&quot;, and a corresponding
+(empty) menu with the pathname .tkgpopup.foobar, which is the menu to which
+you should add items in your client code. </P>
+
+<H4>TKGPopupAdd</H4>
+
+<P>adds an item to the main popup menu at the end of the client-added section.
+The arguments are any arguments that would come after &quot;.menuname add&quot;
+in a normal addition of an item to a menu. 
+
+<A NAME="periodic"></A></P>
+<H3>TKGPeriodic</H3>
+
+<P>You can schedule a Tcl command for periodic execution as follows: </P>
+
+<PRE>TKGPeriodic name period offset command</PRE>
+
+<UL>
+<LI>The name is an arbitrary name. </LI>
+
+<LI>The period is the interval (in seconds) between executions of the periodic
+command. </LI>
+
+<LI>The offset is the delay (in seconds) between invocation of the TKGPeriodic_command
+and the first execution of this periodic command. </LI>
+
+<LI>The command is the command to execute at theat interval after that
+offset.</LI>
+</UL>
+
+<P>You should try not to do anything periodically in this way that will
+take a lot of time to finish processing (e.g., don't have a periodically-called
+procedure wait for something before returning), since this will screw up
+the user interface responsiveness and other periodic processes. If you
+have to do something time-consuming, you should exec a shell script in
+the background with bgexec (see the BLT documentation) and trace the bgexec
+variable to get its output (for an example see Ical_fetch in Ical.tcl).
+</P>
+
+<P>To cancel a scheduled periodic command, use: </P>
+
+<PRE>TKGPeriodicCancel name</PRE>
+
+<P>This will cancel any command that was scheduled by the same name with
+TKGPeriodic. <A NAME="other"></A></P>
+
+<H2>Other Utilities </H2>
+
+<P><A NAME="tkgdialog"></A></P>
+
+<H3>TKGDialog </H3>
+
+<PRE>TKGDialog name [ -wmtitle string ] [ -title string ] \
+      [-image imagefilename] [-message string] [-text string] \
+      [-titlebg color] [-titlefg color] [-bitmapfg color] \
+      [-buttons buttonlist] [-nodismiss]</PRE>
+
+<P>All the options in brackets are optional. This command pops up a dialog
+box with pathname &quot;.<B>name</B>&quot;. The <B>-wmtitle</B> string
+is what will be put in the window manager title bar. The <B>-title</B>
+string is put in the dialog box title frame (up top, in a large font).
+The icon from the file named by the <B>-imagefilename</B> identifier is
+also put in the title frame. The <B>-message</B> string is put in a framed
+message widget under the title frame, if any. The <B>-text</B> widget is
+put in a scrollable text widget under the title frame, if any (and message
+frame, if any). The color options are as follows: <B>-titlebg</B> is the
+background of the title frame; <B>-titlefg</B> is the foreground of the
+title string; and <B>-bitmapfg</B> is the foreground color of the icon
+(if it is a bitmap; otherwise this switch does nothing). The button list
+is a list of button items, where a button item is a list of three items:
+a (lowercase) name for the button (the button's pathname will be &quot;.<B>name</B>.buttons.<B>buttonname</B>&quot;),
+a string of text to put on the button, and the command that the button
+will execute when pressed (usually this should include &quot;destroy .<B>name</B>&quot;).
+Unless you include the argument &quot;<B>-nodismiss</B>&quot;, there will
+also be a button labelled &quot;Dismiss&quot; which destroys the dialog.
+The buttons are placed at the bottom of the dialog, left to right in the
+order of your list, with the default &quot;Dismiss&quot; button at the
+right. <A NAME="tkgnotice"></A></P>
+
+<H3>TKGNotice </H3>
+
+<PRE>TKGNotice &quot;Notice text.&quot;</PRE>
+
+<P>Posts a simple notice dialog with a dismiss button. <A NAME="tkgerror"></A></P>
+
+<H3>TKGError </H3>
+
+<PRE>TKGError &quot;Error text.&quot; ?exit?</PRE>
+
+<P>Posts an error dialog with a dismiss button, a stack-trace button, and
+a preferences manager button. If &quot;exit&quot; is present, tkgoodstuff
+will be suspended and will exit when dismissed. <A NAME="colorconfig"></A></P>
+
+<H3>ColorConfig </H3>
+
+<PRE>ColorConfig pathname foregroundcolor backgroundcolor</PRE>
+
+<P>This command sets the foreground and background colors of the window
+whose pathname you indicate, as well as the colors of its descendants,
+to the colors you name. Using &quot;-&quot; in place of the name of a color
+leaves that feature unchanged. <A NAME="recursivebind"></A></P>
+
+<H3>RecursiveBind </H3>
+
+<PRE>RecursiveBind pathname sequence command</PRE>
+
+<P>This command binds the sequence to the indicated command in the window
+whose pathname you indicate as well as in all of its descendants. <A NAME="tkgdeclare"></A></P>
+
+<H3>TKGDeclare </H3>
+
+<PRE>TKGDeclare variable value [-typelist {type1 type2 ...}] \
+        [-vartype boolean/radio/optionMenu/text/entry] \
+        [-textsize WxH] \
+        [-radiolist {{&quot;Label 1&quot; value1} {&quot;Label 2&quot; value2} ...}\
+        [-optionlist {value1 value2 ...}]\
+        [-label &quot;Preferences Manager Label text&quot;] \
+        [-help &quot;Preferences Manager Help text&quot;]
+</PRE>
+
+<P>This command sets the indicated variable to <B>value</B> unless the
+variable already has a value (due, e.g., to the user's preferences settings),
+in which case that value is retained. (This is how a client should set
+those of its global variable that you want users to be able to set in the
+preferences manager.) The other switches govern how the variable is treated
+in the preferences manager. <A NAME="setimage"></A></P>
+
+<H3>SetImage </H3>
+
+<PRE>SetImage name filname</PRE>
+
+<P>This command creates an image named <B>name</B>, reading it from the
+file <B>filename</B>, and returns the image type (e.g., &quot;bitmap&quot;,
+&quot;photo&quot;). <A NAME="debug"></A></P>
+
+<H3>DEBUG </H3>
+
+<PRE>DEBUG string</PRE>
+
+<P>This command writes the string to the internal log, and, if TKGLogging
+is 1, also to the log file. </P>
+
+</BODY>
+</HTML>

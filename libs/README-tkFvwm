@@ -1,0 +1,102 @@
+This is an update of some work by Andreas Aravena.
+As far as I know, Aravena is not supporting this work, so I am the
+person to contact regarding bugs, etc.
+
+M. Crimmins
+markcrim@umich.edu
+
+Aravena's original README, slightly updated to reflect my changes,
+follows: 
+
+--------
+Hello
+
+    This is my  first attempt to make  a Tcl extension. It  allows the
+creation of  FVWM modules under Tcl/Tk.  I've  been looking for such a
+thing since I read the note in the "Fvwm Module Interface" document.
+
+The file  tkFvwm.c implements  a new  tcl  command, with the following
+syntaxis:
+
+1) fvwm init <out-fd> <in-fd>
+
+   This  command establish   the  communication with  the parent  FVWM
+process through the two pipes identified by  the file descriptors. The
+<out-fd> is the file descriptor used to send messages *to* FVWM, while
+<in-fd>  is the fd  that  receives messages  *from* FVWM. The  typical
+usage is:
+
+	fvwm init [lindex $argv 0] [lindex $argv 1]
+
+2) fvwm send <windowID> <message>
+
+    This command  sends  the    given message  to   the  parent  FVWM,
+indicating the windowID over wich the command will be applyed. Typical
+usage is:
+
+	fvwm send  $id {Iconify ""}
+	fvwm send 0 Send_WindowList
+
+3) fvwm <cmd-name> ?<script>?
+
+   This defines  (or  queries) the procedure to  be  called when a  FVWM
+message is received.
+
+   <cmd-name>     is one  of      the  following keywords:   DeadPipe,
+TogglePaging, NewPage,  NewDesk,  AddWindow, RaiseWindow, LowerWindow,
+ConfigureWindow,      FocusChange, DestroyWindow, Iconify,  Deiconify,
+WindowName,  IconName, ResClas, ResName, EndWindowlist, IconLocaton or
+Map.
+
+   The   matching   is case    insensitive    and the  names  can   be
+abreviated.  DeadPipe doesn't correspond to   any FVWM message, but is
+invoked when the comunication with the parent  is broken (as when FVWM
+dies).
+
+   The script may contain % characters. Each of these, and the
+character following it, is replaced with data taken from the FVWM
+message as defined in the list below.
+  
+	%W   window id
+
+	%x   window horizontal pos
+	     (also, x coord of bottom-right page in NewDesk message)
+	
+	%y   window vertical pos
+	     (also, y coord of bottom-right page in NewDesk message)
+
+	%w   window width
+
+	%h   window height
+
+	%t   desktop for window
+
+	%f   flags
+
+	%N   window, icon or class name
+
+	%T   current desktop (in a NewDesk message)
+
+	%D   current desktop (in a NewPage message)
+
+	%X   new desk horizontal pos (in a NewPage message)
+
+	%Y   new desk vertical pos (in a NewPage message)
+
+	default:
+
+This list will be extended in the next release. The typical usage is:
+
+	fvwm configureWindow {Configure %W %f}
+	fvwm iconName {icon_name %W %N}
+
+
+I have written   a couple of examples, they   are included in the  tar
+file. It is advisable that you make an interpreter with this extension
+and TclX and/or Tix  (at least the  Xpm code). If  you want to include
+only some of these extensions, you will  need to change the headers of
+the file. I've done it on tixImgXpm.c and others.  Feel free to e-mail
+me if you want these.
+
+						Andres Aravena
+					     andres@aravena.mic.cl

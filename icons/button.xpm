@@ -1,0 +1,17 @@
+/* XPM */
+static char * button_xpm[] = {
+"11 11 3 1",
+" 	s None	c None",
+".	c #843c24",
+"X	c #cf9a30",
+"    ...    ",
+"  ..XXX..  ",
+" .XXXXXXX. ",
+" .X..X..X. ",
+".XX..X..XX.",
+".XXXXXXXXX.",
+".XX..X..XX.",
+" .X..X..X. ",
+" .XXXXXXX. ",
+"  ..XXX..  ",
+"    ...    "};

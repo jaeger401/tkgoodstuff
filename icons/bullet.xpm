@@ -1,0 +1,13 @@
+/* XPM */
+static char * bullet_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"5 5 2 1",
+/* colors */
+" 	s None	c None",
+".	c #7fff00",
+/* pixels */
+"  .  ",
+" ... ",
+".....",
+" ... ",
+"  .  "};

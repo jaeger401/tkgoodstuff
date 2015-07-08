@@ -1,0 +1,31 @@
+/* XPM */
+static char * tkman_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 18 7 1",
+/* colors */
+" 	s None	c None",
+".	c #808080",
+"X	c #7fff00",
+"o	c #3c3c3c",
+"O	c #c0c0c0",
+"+	c #ffffe3",
+"@	c #ce0000",
+/* pixels */
+"        ......          ",
+"        .XXXXXo O       ",
+"      OO.XXoXXoO+O      ",
+"   OOO++.XXooXXoO+O     ",
+"  O+++++.XXo.XXo+O+O    ",
+" OO+++O++oo.XXoO+++O    ",
+"@OOO++OO+++.XXoOOO++O   ",
+"@OOO+O++O+.XXoO+++++O   ",
+" @OO++OO++.XXo+O++O++OO ",
+" @OOO+O+O+.XXo+O+O++++O ",
+" @OOOO+O+O+oo++++++++OO ",
+"  @OOO++O++..+++OOOOOOO@",
+"  @OOOO+++.XXoOOOOOOO@@ ",
+"   @OOO+OO.XXoOOO@@@@   ",
+"   @OOOOOOOooOOO@       ",
+"    @OOOO@@@@@@@        ",
+"    @OOO@               ",
+"     @@@                "};

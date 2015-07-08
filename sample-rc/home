@@ -1,0 +1,17 @@
+# tkgoodstuff config file format 1
+TKGSet Analog(minsize) 60
+TKGSet Menu(data) {{Menu Applications {} {{Exec Rxvt {-command rxvt}} {Exec Emacs {-command emacs}} {Exec Knews {-command knews}} {Exec Netscape {-command netscape}} {Exec XV {-command xv}}}} {Separator -------} {Menu Utilities {} {{Exec tkdesk} {Exec xdir} {Exec tkman} {Exec xfontsel} {Exec xcolorsel} {Exec TkCon {-command tkcon.tcl}}}} {Separator -------} {Run {Run . . .}} {Separator -------} {TKGMenu {tkgoodstuff Menu}} {Separator -------} {Menu {Log Out} {} {{Exec {Just Log Out} {-command {ps -c | grep { fvwm} | awk {{print \$1}} | xargs kill -9}}} {Exec {Shut Down System} {-command {shutdown -h now}}}}}}
+TKGSet Clock(analog) 1
+
+-------Configuration-------
+Client Clock
+Client Net
+Client WWW
+Client Biff
+PanelButton Utilities
+Client Menu
+Panel Utilities
+Client Webster
+Client Jots
+Client Calc
+EndPanel

@@ -1,0 +1,22 @@
+# tkgoodstuff config file format 1
+TKGSet Biff(mailer) exmh
+TKGSet Menu(data) {{Menu Applications {} {{Exec Rxvt {-command rxvt}} {Exec Emacs {-command emacs}} {Exec Knews {-command knews}} {Exec Netscape {-command netscape}} {Exec XV {-command xv}}}} {Separator -------} {Menu Utilities {} {{Exec tkdesk} {Exec xdir} {Exec tkman} {Exec {TkCon} {-command tkcon.tcl}}}} {Separator -------} {Run {Run . . .}} {Separator -------} {TKGMenu {tkgoodstuff Menu}} {Separator -------} {Menu {Log Out} {} {{Exec {Just Log Out} {-command {ps -c | grep { fvwm} | awk {{print \$1}} | xargs kill -9}}} {Exec {Shut Down System} {-command {shutdown -h now}}}}}}
+TKGSet Biff(trackwindow) 1
+TKGSet WWW(usebutton2) 0
+TKGSet WWW(trackwindow) 1
+TKGSet TKG(screenedge) right
+
+-------Configuration-------
+Client Clock
+Client Menu
+Client Biff
+Client WWW
+PanelButton Utilities
+Panel Utilities
+Client Calc
+Client Webster
+Client Jots
+Client TkMan
+EndPanel
+Client WindowList
+Client Pager

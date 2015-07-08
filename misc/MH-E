@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# MH-E: launch an mh-e session in emacs on xwindows
+# markcrim@umich.edu 1/2/96
+
+if (gnudoit < /dev/null) ; then true
+else
+  if xmessage -buttons Yes:0,Cancel:1 "No emacs running gnuserv.
+    Start emacs?" -default Yes
+  then
+    (emacs &)
+    until (exec gnudoit < /dev/null)
+    do sleep 3
+    done
+  else
+    exit 0
+  fi
+fi > /dev/null
+
+sleep 1000000 &
+# tell emacs what to do and the pid of our sleep process
+gnudoit -q "(require 'frame-mh-e) (frame-mh-e $!)"

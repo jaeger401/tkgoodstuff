@@ -1,0 +1,91 @@
+TKGOODSTUFF FAQ
+---------------
+
+-- It won't configure because:
+
+   a. It can't find tclConfig.sh (and neither can I)!
+
+    ANSWER: Your installation of tcl/tk is improper.  Get the latest
+    from ftp://ftp.smli.com/pub/tcl.  The files tclConfig.sh and
+    tkConfig.sh should automatically end up in the same directory as
+    the tcl and tk libraries (such as libtcl8.0.so).
+
+   b. It can't find tclConfig.sh, but it's right there in
+   /smurf/glep/lib! 
+
+    ANSWER: Start from scratch with a CLEAN, freshly unpacked
+    distribution, and do: 
+       ./configure --prefix=/smurf/glep
+
+   c. It can't find tclsh8.0 or (wish8.0), but it's right there in
+   /smurf/glep/bin!
+
+    ANSWER:  Be sure your $PATH contains the directory containing
+    wish8.0. 
+
+-- I have difficulty compiling it.
+   ANSWER: The most common problem is that a too-old version of tcl/tk
+   is getting in the way.  Be sure there are no tclConfig.sh,
+   tkConfig.sh, tcl.h, and tk.h hanging around from earlier versions
+   of tcl/tk (earlier than the versions that tkgoodstuff needs).  You
+   should certainly suspect this if you get such things as:
+
+	    undefined reference to `Tk_FontId'
+
+-- It configures and compiles fine, but it won't run.
+
+   ANSWER: 
+     1. Did you install it?  Do "make install". 
+     2. Are you sure you are executing the installed tkgoodstuff?
+
+-- When I run it, it dies with "wish8.0: can't load library
+   'libtk8.0.so'".
+
+   ANSWER: Your tcl/tk setup isn't properly installed.  Be sure:
+       a. libtk8.0.so exists in a place where your system usually can
+          find libraries (e.g., /usr/local/lib).  Perhaps you need to
+	  add that directory to /etc/ld.so.conf.
+       b. the permissions on the file are right: the file is readable.
+       c. (if applicable) you have run "ldconfig" (as root).
+
+-- I have fvwm2 running, but it still says WindowList (or Pager) can't
+   run without fvwm2.
+
+   ANSWER: Read the html docs more carefully.  You have to make fvwm
+   run tkgoodstuff AS A MODULE.
+
+-- I launch tkgoodstuff as an fvwm module, and sometimes after
+   restarting tkgoodstuff several times fvwm eats up all of my CPU. 
+
+   ANSWER: This is fvwm's fault.  My fix for it is incorporated in
+   fvwm2 versions 2.0.43 and later.  So upgrade fvwm2 to 2.1 
+   (ftp://ftp.hpc.uh.edu/pub/fvwm).
+
+-- In screen-edge mode, sometimes (or always) my panel seems to try to
+   grow to the full size of the screen-edge, and then suddenly
+   collapses to a smaller size.  I use fvwm or a derivative.
+
+   ANSWER: This too is fvwm's fault.  My (single-line) patch for fvwm2
+   is included in the main directory of the tkgoodstuff distribution.
+   I think it will be incorporated in the next fvwm2 version after
+   2.0.45.
+
+-- Tkgoodstuff (and my window manager, come to think of it) can't find
+   programs that I know are in my $PATH.
+
+   ANSWER: They may be in your PATH when you run your shell in an
+   xterm, but they are not in the path of the program that launched
+   your window manager.  Try setting (and using "export" or "setenv",
+   depending on the shell) PATH in your .xsession or .xinitrc, or in
+   whatever script starts your window manager.
+
+-- I get this annoying error/behavior/whatever...
+
+   ANSWER: We'd love to know more about it.  Write to the tkgoodstuff
+   mailing list tkgoodstuff@merv.philosophy.lsa.umich.edu WITH LOTS OF
+   DETAILS, including the exact versions of tkgoodstuff and tcl/tk and
+   (fvwm2 if you're using tkgoodstuff as an fvwm2 module), your
+   platform and OS, the entire stack trace from the error message (you
+   can copy it by selecting it with the mouse), your .tkgrc, and/or
+   whatever details you think might be relevant.  Members of the list
+   might be able to help.

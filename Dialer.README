@@ -1,0 +1,26 @@
+Dialer version 8.0
+
+Dialer is a unix X-Windows GUI thingy that dials your modem while you
+watch, executes a login script, and starts a program of your choice
+(e.g., ppp or term) on successful connection.
+
+*** Requires tk ***  (Expect no longer required.)
+
+Tk version 4.1 and above should work, but if you have trouble please
+try the latest version of tcl/tk.
+
+Self-documenting.  To use, run it, hit the "Settings" button,
+configure your settings and login script, and finally use the "Save"
+option.
+
+More information is available in a Help menu item in the Settings
+window.
+
+To use from the tkgoodstuff Net client, include a command like the
+following in the relevant preferences item (i.e., the "Unix Command to
+Open Link"):
+   Dialer /home/markcrim/.DialSettings Dial
+
+-------
+markcrim@umich.edu
+

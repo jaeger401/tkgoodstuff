@@ -1,0 +1,65 @@
+TO DO:
+------ 
+
+(Thanks to anyone who helps with any of these; let me know what you're
+working on.  I encourage you to new clients---it's not that hard!) 
+
+1. Allow selection of button behavior NextOrExec in preferences
+(button stays up, does FvwmNextOrExec rather than exec).  Move all
+this into a special preferences pane on button behavior (loaded with
+Fvwm.tcl):
+   - Default: Button launches application and stays sunken until
+   application process exists.
+   - NextOrExec: Button moves to next window whose name matches the
+   specified pattern, executes the unix command if there is no such
+   window, and does not remain sunken.
+   - Window-tracking: 
+
+2. Ical uses a Clock hook; what if Clock isn't loaded?  Make 
+clock async stuff a general util. & make Clock & ical & others rely on
+it (the general async scheduler should treat multiples of a minute
+differently from other stuff; that way async stuff happens less often
+and there is less overlap).
+
+3. In tkFvwm.c, create an image type "fvwmmini" that creates an image
+of the fvwm2 mini-icon for each window id?  Use Ioi Lam's xpm code for
+a start?  Anyone with X programming experience who'd like to take this
+on?
+
+4. Dragging with a swallowed window makes the swallowing window blow
+up (somehow gridded geometry management is getting used?).
+
+5. Have a menu item in the Button config dialog.  Bind menu to <3>,
+and to <1> if no other command.  Include menu item "Properties" for
+button preferences.
+
+6. Incorporate new tcl/tk file browser at appropriate points.
+
+7. A switch to exec commands (Button, Menu, Run) to execute as root.
+Get root password once & keep it.
+
+8. XSettings client.  Set screen background (color or imagefile using
+xv), bell properties, mouse properties, screen saver (with xset).
+Actually set these at tkgoodstuff startup, and launch settings window
+(using tabbed notebook) on button 1.  Make button optional, and
+include an "X Settings" menu item.
+
+9. Allow fvwm2 bindings (using the new string send facility):
+        Alt-Tab: FvwmNext (better, keep a list in order of most recent
+	   focus---do this for the main Fvwm database?).
+	Our Menu bound to mouse on root window.
+
+10. Provide a "TKGMaximize" button in fvwm borders (which maximizes up
+to the tkgoodstuff main panel)?
+
+11. Redo sizing for preferences frames.
+
+12. In Menu client, allow a PATH item that has cascades for PATH
+directories (and big directories are subdivided by first character?). 
+
+13. Make "name type" property for distinguishing window name from
+resource class, etc (for WindowList, FvwmButtonBehavior, etc.).
+
+14. Handle raising previous preferences window better on dismiss.
+
+15. In configure, allow --with-tclConfig.sh=filename.

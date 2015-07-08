@@ -1,0 +1,14 @@
+# tkgoodstuff config file format 1
+TKGSet TKG_border 0
+TKGSet TKG_padding 0
+TKGSet TKG_orientation horizontal
+TKGSet TKG_fontscale 0
+TKGSet Menu_makebutton 0
+TKGSet TKG_sep 0
+TKGSet Clock_analog 0
+TKGSet Biff_noicon 1
+
+-------Configuration-------
+Client Clock
+Client Biff
+Client Menu

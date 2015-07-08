@@ -1,0 +1,26 @@
+/* XPM */
+static char * win_xpm[] = {
+/**/
+"16 16 4 1",
+/**/
+" 	s None	c None",
+".	c #cf9a30",
+"X	c #843c24",
+"o	c #87ceff",
+/*Add Extension...*/
+"                ",
+"                ",
+"  ...........   ",
+"  .XXXXXXXXXX   ",
+"  .XoooXooo.X   ",
+"  .XoooXooo.X   ",
+"  .XoooXooo.X   ",
+"  .XXXXXXXXXX   ",
+"  .XoooXooo.X   ",
+"  .XoooXooo.X   ",
+"  .XoooXooo.X   ",
+"  .X...X....X   ",
+"  .XXXXXXXXXX   ",
+"                ",
+"                ",
+"                "};

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>TkGoodStuff Biff</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (X11; I; Linux 2.0.26 i586) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<H1>TkGoodStuff Biff</H1>
+
+<H2>Description </H2>
+
+<P>The Biff client is a new-mail notifier. It provides a button on your
+tkgoodstuff panel that can display an icon indicating the presence of new
+mail, a text message indicating &quot;No Mail&quot;/&quot;New Mail&quot;,
+or both (optionally, &quot;New Mail&quot; is replaced by a counter of new
+messages). A more detailed display is available in multiple-mailbox mode
+(below).</P>
+
+<P>Biff watches one or more &quot;mailboxes&quot;: mail files, MH folders,
+or mailboxes on remote IMAP servers. For each mailbox, at a set interval
+Biff looks for unread messages in the mailbox and flags the presence of
+new mail by beeping and changing the icon and/or label of the Biff button.
+Each mailbox is assigned an &quot;alert level&quot;, and the new-mail icon
+indicates the maximum alert-level of all mailboxes with new mail. </P>
+
+<P>If you configure Biff to watch just one mailbox, it will display on
+the Biff button the number of new messages in it, if any, and mouse button
+3 fetches a list of the messages. If you use multiple mailboxes, then mouse
+button 3 produces a menu that indicates how many new messages are in each
+mailbox, and which allows you to fetch a list of the messages in any of
+them. You can click on a message in the message list to view the message
+in full. If you like, Biff can also post a list of new messages in a mailbox
+when they arrive. Also, if you use multiple mailboxes, you can replace
+the normal Biff button in the tkgoodstuff panel with the menu of mailboxes,
+allowing you to see at a glance how much new mail you have in all of your
+mailboxes. You can also &quot;tear off&quot; the mailboxes menu to position
+elsewhere on the screen.</P>
+
+<P>Clicking mouse button 1 on the Biff button launches your mailer program
+(the button stays depressed and inoperative until you exit the mailer program).
+Button 2 instructs Biff to regard as old mail any current new mail (displaying
+a no-mail icon and/or the label &quot;No Mail&quot;), and to wait until
+you get yet more mail before notifying you. </P>
+
+<P>For each mailbox, you can choose (in the preferences manager) between
+several &quot;methods&quot; of testing for new mail: there are special
+methods for mailboxes on IMAP servers and for MH mailboxes (you don't know
+if your mailbox is MH-style? then it's almost certainly not), and three
+methods for detecting new mail in standard mail files (including spool
+files, such as the default mailbox /usr/spool/mail/<B>username</B>): &quot;atime&quot;,
+&quot;filesize&quot;, and &quot;internal&quot;. With the method &quot;atime&quot;
+(the default), Biff decides that there's new mail when the file has been
+modified when or after it has last been accessed (its mtime is no less
+than its atime). With the method &quot;filesize&quot;, Biff decides that
+there's new mail when the file is nonempty. The &quot;internal&quot; method
+scans the message headers for &quot;Status:&quot; lines, and treats messages
+with a status of &quot;N&quot; or with no &quot;Status:&quot; line as new.
+The &quot;atime&quot; or &quot;internal&quot; method is probably best for
+those who keep old mail in their spool file. The &quot;filesize&quot; method
+is better for those who normally regard all mail in the spool file as new
+mail. </P>
+
+<P>The MH method is only for those using MH mailboxes AND automatic incorporation
+of new mail (e.g., by slocal or procmail), and is automatically used if
+the folder to be checked starts with a &quot;+&quot;. With the mh method,
+we assume a message is new if it is in the &quot;u&quot; sequence in the
+.mh_sequences file in the folder or if its atime isn't after its mtime.
+NOTE: for automatic incorporation of new mail into MH folders, you must
+pipe messages (using slocal or procmail or deliver) into the MH program
+rcvstore, so that the MH unseen sequence is correctly updated. An example
+from my .procmailrc: </P>
+
+<PRE>MHLIB=/usr/lib/mh
+:0
+* ^(To|Cc|Subject):.*tkgoodstuff.*
+|$MHLIB/rcvstore +tkg</PRE>
+
+<P>The IMAP method is for mailboxes on remote IMAP servers. You need to
+supply the mailbox name and your user name (at the server). Note: if you
+are unsure about the mailbox name, very likely your mailbox at the server
+is called &quot;INBOX&quot;. You can supply your password (at the server)
+in the preferences manager, <B>in which case it will be stored in your
+.tkgrc file (which it's up to you to protect!!)</B>, or you can leave your
+password blank in the preferences manager, in which case tkgoodstuff will
+ask you for it when the mailbox is first accessed. </P>
+
+<P>All parameters are adjustable in the preferences manager. </P>
+
+<ADDRESS>Thanks to G. Dezern. </ADDRESS>
+
+</BODY>
+</HTML>

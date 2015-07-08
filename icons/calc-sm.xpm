@@ -1,0 +1,32 @@
+/* XPM */
+static char * calc_sm_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"24 18 8 1",
+/* colors */
+" 	s None	c none",
+".	c #3c3c3c",
+"X	c white",
+"o	c black",
+"O	c #c0c0c0",
+"+	c #ffffe3",
+"@	c #808080",
+"#	c #7fff00",
+/* pixels */
+"             .....      ",
+"            .XXXXXo     ",
+"           .XXXXoXX     ",
+"          O.XXXo  .     ",
+"         OO.....+++@@@  ",
+"        +..##.#.....+++@",
+"        O......#.#....OO",
+"       O++++...#..#..+OO",
+"       ++@@++++.....+OOO",
+"      ++++++@@++++++OOO@",
+"     ++@@++++++@@++OOO@ ",
+"    ++++++@@++++++OOO@  ",
+"   ++@@++++++@@++OOO    ",
+"  O+++++@@+++++++OO     ",
+"  OO+++++++@@+++OO      ",
+"   @++O++++++++OO       ",
+"      @++O++++O@        ",
+"         @O+OO@         "};
