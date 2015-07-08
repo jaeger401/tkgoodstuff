@@ -32,7 +32,7 @@
 
 typedef struct TkColormap TkColormap;
 typedef struct TkGrabEvent TkGrabEvent;
-typedef struct Tk_PostscriptInfo Tk_PostscriptInfo;
+/*typedef struct Tk_PostscriptInfo Tk_PostscriptInfo;*/
 typedef struct TkpCursor *TkpCursor;
 typedef struct TkRegion_ *TkRegion;
 typedef struct TkStressedCmap TkStressedCmap;
@@ -674,15 +674,16 @@ extern TkDisplay *tkDisplayList;
  * to the outside world:
  */
 
-extern Tk_Uid			tkActiveUid;
+/* a few things here were extern; removed -- JSG */
+Tk_Uid			tkActiveUid;
 extern Tk_ImageType		tkBitmapImageType;
-extern Tk_Uid			tkDisabledUid;
+Tk_Uid			tkDisabledUid;
 extern Tk_PhotoImageFormat	tkImgFmtGIF;
 extern void			(*tkHandleEventProc) _ANSI_ARGS_((
     				    XEvent* eventPtr));
 extern Tk_PhotoImageFormat	tkImgFmtPPM;
 extern TkMainInfo		*tkMainWindowList;
-extern Tk_Uid			tkNormalUid;
+Tk_Uid			tkNormalUid;
 extern Tk_ImageType		tkPhotoImageType;
 extern Tcl_HashTable		tkPredefBitmapTable;
 extern int			tkSendSerial;

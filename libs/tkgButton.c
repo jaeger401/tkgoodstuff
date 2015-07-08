@@ -382,7 +382,7 @@ TkgButtonCreate(clientData, interp, argc, argv, type)
     Tk_SetClass(new, classNames[type]);
     butPtr = TkpCreateTkgButton(new);
 
-    TkSetClassProcs(new, &tkpTkgButtonProcs, (ClientData) butPtr);
+    Tk_SetClassProcs(new, &tkpTkgButtonProcs, (ClientData) butPtr);
 
     /*
      * Initialize the data structure for the button.

@@ -135,7 +135,7 @@ extern int errno;
  * in any other header file.
  */
 
-extern void		panic();
+/*extern void		panic();*/
 
 /*
  * These functions do nothing under Unix, so we just eliminate calls to them.

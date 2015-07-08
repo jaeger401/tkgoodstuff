@@ -12,12 +12,10 @@ prefix =		/usr
 exec_prefix =		${prefix}
 
 # Where to create the tkgoodstuff library directory 
-#TKG_LIBRARY =		$(prefix)/lib/tkgoodstuff
-TKG_LIBRARY =		./lib/tkgoodstuff
+TKG_LIBRARY =		$(prefix)/lib/tkgoodstuff
 
 # Where to put the executable scripts (tkgoodstuff, Dialer)
-#BIN_INSTALL_DIR =	$(exec_prefix)/bin
-BIN_INSTALL_DIR =	./bin
+BIN_INSTALL_DIR =	$(exec_prefix)/bin
 
 # english or french 
 TKG_LANGUAGE =		english
@@ -26,7 +24,7 @@ TKG_LANGUAGE =		english
 EXECSHELL =		$(BIN_INSTALL_DIR)/tkgwish$(VERSION)
 
 SRCDIR =		.
-TCLSH =			/usr/bin/tclsh8.0
+TCLSH =			/usr/bin/tclsh8.5
 INSTALL =		/usr/bin/install -c
 INSTALL_PROGRAM =	${INSTALL}
 INSTALL_DATA =		${INSTALL} -m 644
